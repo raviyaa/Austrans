@@ -7,9 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -30,7 +31,8 @@ export function provideSettings(storage: Storage) {
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    LoginPage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ export function provideSettings(storage: Storage) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    DashboardPage
   ],
   providers: [
     Camera,

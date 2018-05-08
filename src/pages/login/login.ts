@@ -1,26 +1,21 @@
+import { DashboardPage } from './../dashboard/dashboard';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
-@IonicPage()
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
-  };
-
-  // Our translated text strings
+  loginForm: FormGroup;
   private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
+    private fb: FormBuilder,
     public translateService: TranslateService) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
@@ -28,8 +23,31 @@ export class LoginPage {
     })
   }
 
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      email: ['',],
+      password: ['',],
+
+    });
+  }
   // Attempt to login in through our User service
   doLogin() {
-    console.log();
+    this.navCtrl.push(DashboardPage);
+
+  }
+
+  signUp() {
+    this.createToast("Please try using web site");
+  }
+  createToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
+  ngOnDestroy(): void {
+    this.loginForm.reset();
   }
 }
