@@ -32,7 +32,7 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     LoginPage,
-    DashboardPage
+    DashboardPage    
   ],
   imports: [
     BrowserModule,

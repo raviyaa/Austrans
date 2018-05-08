@@ -1,3 +1,4 @@
+import { DashboardPage } from './../pages/dashboard/dashboard';
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -6,15 +7,13 @@ import { Config, Nav, Platform } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 
 @Component({
-  template: `<ion-menu [content]="content">
-  </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage = LoginPage;
-
+  pages: Array<{title: string, component: any}>;
   @ViewChild(Nav) nav: Nav;
-  constructor(private translate: TranslateService, platform: Platform, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService,public  platform: Platform, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -22,6 +21,11 @@ export class MyApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
+
+    this.pages = [
+      { title: 'Home', component: DashboardPage },
+      { title: 'List', component: DashboardPage }
+    ];
   }
 
   initTranslate() {
@@ -45,9 +49,9 @@ export class MyApp {
       this.translate.use('en'); // Set your language here
     }
 
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+  /*   this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
-    });
+    }); */
   }
 
   openPage(page) {
@@ -55,4 +59,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+
+
 }

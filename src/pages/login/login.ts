@@ -3,14 +3,15 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
-
+import { APP_DI_CONFIG } from '../../app/app-config/app-config.constants';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  loginForm: FormGroup;
+  loginForm: FormGroup;  
+  logoUrl: string = APP_DI_CONFIG.LOGO_URL;
   private loginErrorString: string;
 
   constructor(public navCtrl: NavController,

@@ -1,11 +1,11 @@
 <ion-header>
-
   <ion-navbar>
+<!--     <button ion-button menuToggle [hidden]="true">
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
     <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content>
   <form [formGroup]="loginForm" (submit)="doLogin()">
