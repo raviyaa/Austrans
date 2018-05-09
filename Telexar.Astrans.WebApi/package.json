@@ -1,0 +1,21 @@
+{
+  "name": "astrans",
+  "version": "1.0.0",
+  "description": "astrans web api for sql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "raviyaa",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "common-errors": "^1.0.5",
+    "express": "^4.16.3",
+    "http-status": "^1.1.0",
+    "mysql": "^2.15.0"
+  }
+}
