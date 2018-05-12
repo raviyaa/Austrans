@@ -2,16 +2,28 @@
 var connection = require('../connection');
 
 function getListOfUsers(callback) {
-    console.log("service calleed");
-    connection.query('SELECT * from user', function (err, rows, fields) {
-        connection.end();
-        if (!err)
-            console.log('The solution is: ', rows);
-        else
-            console.log('Error while performing Query.');
+    connection.query('SELECT * from users', function (err, results) {
+        if (err) {
+            callback(null, JSON.stringify(err));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
+
+function userLogin(user, callback) {
+    connection.query('SELECT * from users', function (error, results) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(JSON.stringify(results));
+        }
     });
 }
 
 module.exports = {
-    getListOfUsers: getListOfUsers
+    getListOfUsers: getListOfUsers,
+    userLogin: userLogin
 };
+
+

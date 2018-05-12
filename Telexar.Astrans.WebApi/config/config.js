@@ -1,5 +1,8 @@
 module.exports = {
-   
+
+    //"MONGODB_URL": "mongodb://ios_clovatel_user:1qaz2wsx@ionesoft.mine.nu:27017/Clovatel1929DBv12203",
+    "MONGODB_URL": "mongodb://localhost:27017/ClovatelDB",
+    "MONGODB_HISTORY_URL": "mongodb://ios_clovatel_user:1qaz2wsx@ionesoft.mine.nu:27017/ClovatelHistoryDB",
     "POOL_SIZE": 10,
     "JWT_SECRET": "JWT_SECRET",
     "WEB_SERVER_PORT": 4007,
@@ -44,6 +47,21 @@ module.exports = {
                 expiresInMinutes: 1440
             }
         }
-    }
+    },
+
+    ReservationStatus: [{key: "Reserved", value: "RSV"},
+        {key: "Arrival", value: "ARL"},
+        {key: "Arrived", value: "ARD"},
+        {key: "DayUse", value: "DU"},
+        {key: "Departed", value: "DP"},
+        {key: "StayOver", value: "SO"},
+        {key: "Departed", value: "DP"},
+        {key: "CheckedIn", value: "CHI"},
+        {key: "CheckedOut", value: "CHO"}],
+
+    PAYMENT_TRANSACTION_CODE:"PAY",
+    
+    REVENUE_TRANSACTION_CODE:"RV"
+    
 
 };

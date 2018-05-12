@@ -2,6 +2,7 @@ var express = require('express');
 
 
 var userController = require('./controllers/userController');
+var addressController = require('./controllers/addressController');
 
 module.exports = function () {
 
@@ -13,6 +14,8 @@ module.exports = function () {
     var router = express.Router(options);  
     
     router.get('/getUsers', userController.getListOfUsers);
+    router.get('/getListOfAddress', addressController.getListOfAddress);
+    router.post('/userLogin', userController.userLogin);
     
     return router;
 };

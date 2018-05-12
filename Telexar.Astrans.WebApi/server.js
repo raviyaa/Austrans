@@ -11,7 +11,7 @@ var bodyParser = require('body-parser'),
     errorHandler = require('./middlewares/ErrorHandler'),
     responser = require('./middlewares/Responser');
 
-app.use(router());
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
     //res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
-
+app.use(router());
 app.listen(port);
 
 console.log('todo list RESTful API server started on: ' + port);
