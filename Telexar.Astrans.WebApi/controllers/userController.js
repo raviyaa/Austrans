@@ -2,7 +2,7 @@
 
 var async = require('async');
 var userService = require('../services/userService');
-var utils = require('../helpers/util');
+var utils = require('../helpers/utils');
 function getListOfUsers(req, res) {
     async.waterfall([
         function (callback) {

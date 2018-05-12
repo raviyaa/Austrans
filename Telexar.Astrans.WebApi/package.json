@@ -13,9 +13,13 @@
   },
   "dependencies": {
     "async": "^2.6.0",
+    "body-parser": "^1.18.2",
     "common-errors": "^1.0.5",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "http-status": "^1.1.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "winston": "^2.4.2"
   }
 }
