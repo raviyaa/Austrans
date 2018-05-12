@@ -1,3 +1,5 @@
+import { ViewAddressPage } from './../view-address/view-address';
+import { AddAddressPage } from './../add-address/add-address';
 import { DashboardPage } from './../dashboard/dashboard';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -44,6 +46,7 @@ export class LoginPage {
   }
 
   signUp() {
+    this.navCtrl.push(ViewAddressPage);
     this.createToast("Please try using web site");
   }
   createToast(message) {

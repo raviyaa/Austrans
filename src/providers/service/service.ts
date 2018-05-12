@@ -14,12 +14,14 @@ export class Service {
     constructor(private _http: Http) { }
 
     getListOfUsers() {
-        return this._http.get('http://localhost:3000/getUsers').pipe(
-            map(res => res.json())
-        ); /* this._http.get('http://localhost:3000/getUsers', HttpConfig.requestOptions())
-            .map((response: Response) => response.json()).catch(this._errorhandler); */
+        return this._http.get('http://localhost:3000/getUsers', HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
     }
 
+    getListOfAddresses() {
+        return this._http.get('http://localhost:3000/getListOfAddress', HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
 
     _errorhandler(error: Response) {
         console.error(error);

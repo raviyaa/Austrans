@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="addAddressForm" (submit)="saveAddress()">
+    <ion-list>
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="ref" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.REFERENCE' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="companyName" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.COMPANY_NAME' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="fName" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.FIRST_NAME' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="lName" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.LAST_NAME' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="address" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.ADDRESS' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="email" formControlName="email" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.EMAIL' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="phone" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.PHONE' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="key"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="location" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.LOCATION' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="state" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.STATE' | translate }}"></ion-input>
+      </ion-item>
+
+      <ion-item class="sign-form">
+        <ion-label icon-left>
+          <ion-icon name="mail"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="pin" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.PIN_CODE' | translate }}"></ion-input>
+      </ion-item>
+
+      <div padding class="login-btn">
+        <button ion-button color="primary" block>{{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.BTN_SAVE' | translate }}</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

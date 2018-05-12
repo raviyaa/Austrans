@@ -14,6 +14,8 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { Service } from '../providers/service/service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { AddAddressPage } from '../pages/add-address/add-address';
+import { ViewAddressPage } from '../pages/view-address/view-address';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -35,7 +37,9 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     LoginPage,
-    DashboardPage    
+    DashboardPage,
+    AddAddressPage,
+    ViewAddressPage
   ],
   imports: [
     FormsModule,
@@ -56,7 +60,9 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     LoginPage,
-    DashboardPage
+    DashboardPage,
+    AddAddressPage,
+    ViewAddressPage
   ],
   providers: [
     Camera,
