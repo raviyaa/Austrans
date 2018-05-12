@@ -11,6 +11,9 @@ import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { Service } from '../providers/service/service';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -35,8 +38,10 @@ export function provideSettings(storage: Storage) {
     DashboardPage    
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -57,6 +62,7 @@ export function provideSettings(storage: Storage) {
     Camera,
     SplashScreen,
     StatusBar,
+    Service,
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

@@ -7,6 +7,10 @@ export interface IAppConfig {
   LOGO_URL: string;
   LOGO2_URL: string;
 }
+export interface ISericeUrl {
+
+  USER_SERVICE_URL: string;
+}
 
 
 
