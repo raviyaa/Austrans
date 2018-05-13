@@ -30,7 +30,8 @@ export class AddAddressPage {
       email: ['',],
       phone: ['',],
       location: ['',],
-      state: ['',],
+      country: ['',],
+    /*   state: ['',], */
       pin: ['',]
     });
   }

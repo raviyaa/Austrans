@@ -1,3 +1,4 @@
+import { AddAddressPage } from './../add-address/add-address';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Service } from '../../providers/service/service';
@@ -31,4 +32,7 @@ export class ViewAddressPage {
     });
   }
 
+  addAddress() {
+    this.navCtrl.push(AddAddressPage);
+  }
 }
