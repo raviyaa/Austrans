@@ -24,7 +24,6 @@ export class ViewAddressPage {
 
   getInitData() {
     this.service.getListOfAddresses().subscribe(data => {
-      console.log(data);
       console.log(JSON.parse(data));
       this.addresses = JSON.parse(data);
     }, error => {
