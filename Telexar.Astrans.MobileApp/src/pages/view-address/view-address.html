@@ -10,8 +10,34 @@
 <ion-content padding>
   <ion-list *ngFor="let address of addresses">
     <ion-card>
+
       <ion-item>
         <ion-label icon-left class="calendar-float">
+          <ion-icon name="ribbon"></ion-icon>
+          {{address.reference}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left class="calendar-float">
+          <i class="far fa-building"></i>
+          {{address.company_name}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left class="calendar-float">
+          <ion-icon name="person"></ion-icon>
+          {{address.first_name}} {{address.last_name}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left class="calendar-float">
+          <ion-icon name="pin"></ion-icon>
+          {{address.address}}
+        </ion-label>
+        <ion-label align="right" icon-left class="calendar-float">
           <ion-icon name="calendar"></ion-icon>
           {{address.city}}
         </ion-label>
@@ -19,8 +45,12 @@
 
       <ion-item>
         <ion-label icon-left class="calendar-float">
-          <ion-icon name="calendar"></ion-icon>
-          {{address.address}}
+          <ion-icon name="mail"></ion-icon>
+          {{address.email}}
+        </ion-label>
+        <ion-label align="right" icon-left class="calendar-float">
+          <ion-icon name="call"></ion-icon>
+          {{address.phone}}
         </ion-label>
       </ion-item>
 
