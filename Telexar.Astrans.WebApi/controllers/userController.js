@@ -21,9 +21,6 @@ function getListOfUsers(req, res) {
 function userLogin(req, res) {
     async.waterfall([
         function (callback) {
-            console.log("inside the method");
-            console.log(req.body);
-            console.log(req.body.email);
             var user = {
                 email: req.body.email,
                 password: req.body.password
