@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { AddAddressPage } from '../pages/add-address/add-address';
 import { ViewAddressPage } from '../pages/view-address/view-address';
 import { AddressPopoverComponent } from '../components/address-popover/address-popover';
+import { AstronPreloader } from '../providers/astron-preloader/astron-preloader';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -72,6 +73,7 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     AstranService,
+    AstronPreloader,
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

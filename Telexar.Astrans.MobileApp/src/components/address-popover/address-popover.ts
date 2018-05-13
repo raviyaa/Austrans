@@ -1,6 +1,6 @@
 import { AddAddressPage } from './../../pages/add-address/add-address';
 import { ViewAddressPage } from './../../pages/view-address/view-address';
-import { NavParams, ToastController, AlertController, NavController } from 'ionic-angular';
+import { NavParams, ToastController, AlertController, NavController, ViewController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import * as _ from 'underscore';
 import { AstranService } from '../../providers/astran-service/astran-service';
@@ -18,7 +18,8 @@ export class AddressPopoverComponent {
     public navCtrl: NavController,
     private toastCtrl: ToastController,
     private astranService: AstranService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    public viewCtrl: ViewController
   ) { }
   editAddress() {
     this.navCtrl.push(AddAddressPage, this.navParams.data);
@@ -49,7 +50,7 @@ export class AddressPopoverComponent {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
-            this.createToast('Cancel clicked');
+            this.viewCtrl.dismiss();
           }
         },
         {

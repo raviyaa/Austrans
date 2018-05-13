@@ -1,9 +1,10 @@
+import { AstronPreloader } from './../../providers/astron-preloader/astron-preloader';
 import { ViewAddressPage } from './../view-address/view-address';
 import { AddAddressPage } from './../add-address/add-address';
 import { DashboardPage } from './../dashboard/dashboard';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { APP_DI_CONFIG } from '../../app/app-config/app-config.constants';
 import { AstranService } from '../../providers/astran-service/astran-service';
@@ -21,7 +22,8 @@ export class LoginPage {
     public toastCtrl: ToastController,
     private fb: FormBuilder,
     private astranService: AstranService,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    private astronPreloader: AstronPreloader) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -35,18 +37,20 @@ export class LoginPage {
 
     });
   }
-  // Attempt to login in through our User service
+
   doLogin() {
-    //this.navCtrl.push(DashboardPage);
-    this.astranService.getListOfUsers().subscribe(data => {
-      console.log("fhasdklfjhdslfjhsdl");
-      console.log(data);
-    },
-      error => { console.log(error) });
+    this.astronPreloader.show();
+    this.navCtrl.push(DashboardPage);
+    this.astronPreloader.hide();
+
+    /*   this.astranService.getListOfUsers().subscribe(data => {
+        console.log("fhasdklfjhdslfjhsdl");
+        console.log(data);
+      },
+        error => { console.log(error) }); */
   }
 
   signUp() {
-    this.navCtrl.push(ViewAddressPage);
     this.createToast("Please try using web site");
   }
   createToast(message) {
@@ -60,4 +64,5 @@ export class LoginPage {
   ngOnDestroy(): void {
     this.loginForm.reset();
   }
+
 }

@@ -1,3 +1,4 @@
+import { ViewAddressPage } from './../pages/view-address/view-address';
 import { DashboardPage } from './../pages/dashboard/dashboard';
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +25,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: DashboardPage },
-      { title: 'List', component: DashboardPage }
+      { title: 'Addrress Book', component: ViewAddressPage }
     ];
   }
 

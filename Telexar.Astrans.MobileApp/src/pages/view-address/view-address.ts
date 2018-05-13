@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, PopoverController } from 'ionic-angular';
 import { AstranService } from '../../providers/astran-service/astran-service';
 import { FormBuilder } from '@angular/forms';
+import { AstronPreloader } from '../../providers/astron-preloader/astron-preloader';
 
 @Component({
   selector: 'page-view-address',
@@ -18,7 +19,8 @@ export class ViewAddressPage {
     public toastCtrl: ToastController,
     private fb: FormBuilder,
     private astranService: AstranService,  
-    private popoverCtrl: PopoverController) {
+    private popoverCtrl: PopoverController,
+    private astronPreloader: AstronPreloader) {
   }
 
   ngOnInit() {
@@ -26,7 +28,9 @@ export class ViewAddressPage {
   }
 
   getInitData() {
+    this.astronPreloader.show();
     this.astranService.getListOfAddresses().subscribe(data => {
+      this.astronPreloader.hide();
       console.log(JSON.parse(data));
       this.addresses = JSON.parse(data);
     }, error => {
