@@ -28,6 +28,16 @@ export class AstranService {
             .map((response: Response) => response.json()).catch(this._errorhandler);
     }
 
+    editAddresses(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'editAddress', data, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
+    
+    deleteAddresses(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'deleteAddress', data, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
+
     _errorhandler(error: Response) {
         console.error(error);
         return Observable.throw(error || 'Server Error')

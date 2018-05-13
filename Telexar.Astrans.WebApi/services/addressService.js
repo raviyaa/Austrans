@@ -23,10 +23,32 @@ function addAddress(obj, callback) {
     });
 }
 
+function deleteAddress(obj, callback) {
+    connection.query('DELETE FROM address_books WHERE id=?', [obj.id], function (err, results) {
+        if (err) {
+            callback(null, JSON.stringify(err));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
 
+function editAddress(obj, callback) {
+    console.log(obj);
+    connection.query('UPDATE address_books SET ? WHERE id = ?', [obj, obj.id], function (err, results) {
+        if (err) {
+            callback(null, JSON.stringify(err));
+        } else {
+            console.log(results);
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
 module.exports = {
     getListOfAddress: getListOfAddress,
-    addAddress: addAddress
+    addAddress: addAddress,
+    deleteAddress: deleteAddress,
+    editAddress: editAddress
 };
 
 

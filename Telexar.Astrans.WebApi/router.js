@@ -18,7 +18,8 @@ module.exports = function () {
 
     router.post('/addAddress', addressController.addAddress);
     router.get('/getListOfAddress', addressController.getListOfAddress);
-    
+    router.post('/deleteAddress', addressController.deleteAddress);
+    router.post('/editAddress', addressController.editAddress);
     return router;
 };
 

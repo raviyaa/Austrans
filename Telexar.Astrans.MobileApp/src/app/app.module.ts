@@ -16,6 +16,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AddAddressPage } from '../pages/add-address/add-address';
 import { ViewAddressPage } from '../pages/view-address/view-address';
+import { AddressPopoverComponent } from '../components/address-popover/address-popover';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -39,7 +40,8 @@ export function provideSettings(storage: Storage) {
     LoginPage,
     DashboardPage,
     AddAddressPage,
-    ViewAddressPage
+    ViewAddressPage,
+    AddressPopoverComponent
   ],
   imports: [
     FormsModule,
@@ -62,7 +64,8 @@ export function provideSettings(storage: Storage) {
     LoginPage,
     DashboardPage,
     AddAddressPage,
-    ViewAddressPage
+    ViewAddressPage,
+    AddressPopoverComponent
   ],
   providers: [
     Camera,

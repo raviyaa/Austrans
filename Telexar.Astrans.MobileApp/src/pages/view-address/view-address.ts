@@ -1,6 +1,7 @@
+import { AddressPopoverComponent } from './../../components/address-popover/address-popover';
 import { AddAddressPage } from './../add-address/add-address';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, PopoverController } from 'ionic-angular';
 import { AstranService } from '../../providers/astran-service/astran-service';
 import { FormBuilder } from '@angular/forms';
 
@@ -16,7 +17,8 @@ export class ViewAddressPage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     private fb: FormBuilder,
-    private astranService: AstranService) {
+    private astranService: AstranService,  
+    private popoverCtrl: PopoverController) {
   }
 
   ngOnInit() {
@@ -34,5 +36,12 @@ export class ViewAddressPage {
 
   addAddress() {
     this.navCtrl.push(AddAddressPage);
+  }
+
+  presentPopover(myEvent, data) {
+    let popover = this.popoverCtrl.create(AddressPopoverComponent, data);
+    popover.present({
+      ev: myEvent
+    });
   }
 }

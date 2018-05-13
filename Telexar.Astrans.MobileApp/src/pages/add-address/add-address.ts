@@ -1,3 +1,4 @@
+import { ViewAddressPage } from './../view-address/view-address';
 import { Address } from './../../models/address';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
@@ -22,6 +23,7 @@ export class AddAddressPage {
     private fb: FormBuilder,
     private astranService: AstranService,
     public translateService: TranslateService) {
+
   }
   ngOnInit() {
     this.addAddressForm = this.fb.group({
@@ -37,18 +39,61 @@ export class AddAddressPage {
       /*   state: ['',], */
       pin: ['', Validators.required]
     });
+
+    if (!_.isEmpty(this.navParams.data)) {
+      this.onAddressRetrived(this.navParams.data);
+    }
   }
 
   saveAddress() {
     if (this.addAddressForm.dirty && this.addAddressForm.valid) {
       const p = Object.assign({}, this.address, this.addAddressForm.value);
-      console.log(p);
-      this.astranService.addAddresses(p).subscribe(data => {
-        console.log(data);
-      }, error => {
-        console.log(error)
+      if (!_.isEmpty(this.navParams.data)) {
+        if (!_.isEmpty(this.navParams.data)) {
+          p.id = this.navParams.data.id;
+          this.astranService.editAddresses(p).subscribe(data => {
+            this.createToast("Update successful!");
+            this.navCtrl.push(ViewAddressPage);
+          }, error => {
+            console.log(error);
+            this.createToast("Something went wrong!!!");
+          });
+        } else {
+          this.createToast("Something went wrong!!!");
+        }
+      } else {
+        this.astranService.addAddresses(p).subscribe(data => {
+          this.createToast("New Address successfully added!");
+          this.navCtrl.push(ViewAddressPage);
+        }, error => {
+          console.log(error);
+          this.createToast("Something went wrong!!!");
+        }
+        );
       }
-      );
     }
+  }
+  onAddressRetrived(address) {
+    if (this.addAddressForm) {
+      this.addAddressForm.reset();
+    }
+    this.addAddressForm.patchValue({
+      ref: address.reference,
+      companyName: address.company_name,
+      fName: address.first_name,
+      lName: address.last_name,
+      address: address.address,
+      email: address.email,
+      phone: address.phone
+    });
+  }
+
+  createToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
   }
 }
