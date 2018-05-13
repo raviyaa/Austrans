@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { APP_DI_CONFIG } from '../../app/app-config/app-config.constants';
-import { Service } from '../../providers/service/service';
+import { AstranService } from '../../providers/astran-service/astran-service';
 
 @Component({
   selector: 'page-login',
@@ -20,7 +20,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
     private fb: FormBuilder,
-    private service: Service,
+    private astranService: AstranService,
     public translateService: TranslateService) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
@@ -38,7 +38,7 @@ export class LoginPage {
   // Attempt to login in through our User service
   doLogin() {
     //this.navCtrl.push(DashboardPage);
-    this.service.getListOfUsers().subscribe(data => {
+    this.astranService.getListOfUsers().subscribe(data => {
       console.log("fhasdklfjhdslfjhsdl");
       console.log(data);
     },

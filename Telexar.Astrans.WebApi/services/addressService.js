@@ -12,9 +12,21 @@ function getListOfAddress(callback) {
     });
 }
 
+function addAddress(obj, callback) {
+    console.log(obj);
+    connection.query('INSERT INTO address_books SET ?', obj, function (err, results) {
+        if (err) {
+            callback(null, JSON.stringify(err));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
+
 
 module.exports = {
-    getListOfAddress: getListOfAddress
+    getListOfAddress: getListOfAddress,
+    addAddress: addAddress
 };
 
 

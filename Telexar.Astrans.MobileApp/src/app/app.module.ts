@@ -11,7 +11,7 @@ import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { DashboardPage } from '../pages/dashboard/dashboard';
-import { Service } from '../providers/service/service';
+import { AstranService } from '../providers/astran-service/astran-service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AddAddressPage } from '../pages/add-address/add-address';
@@ -68,7 +68,7 @@ export function provideSettings(storage: Storage) {
     Camera,
     SplashScreen,
     StatusBar,
-    Service,
+    AstranService,
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

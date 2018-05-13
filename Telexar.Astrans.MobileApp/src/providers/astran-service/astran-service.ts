@@ -9,17 +9,22 @@ import { HttpConfig, APP_SERVICE_CONFIG } from './../../app/app-config/app-servi
 import { filter, map, catchError } from 'rxjs/operators';
 
 @Injectable()
-export class Service {
+export class AstranService {
 
     constructor(private _http: Http) { }
 
     getListOfUsers() {
-        return this._http.get('http://localhost:3000/getUsers', HttpConfig.requestOptions())
+        return this._http.get(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getUsers', HttpConfig.requestOptions())
             .map((response: Response) => response.json()).catch(this._errorhandler);
     }
 
     getListOfAddresses() {
-        return this._http.get('http://localhost:3000/getListOfAddress', HttpConfig.requestOptions())
+        return this._http.get(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getListOfAddress', HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
+
+    addAddresses(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'addAddress', data, HttpConfig.requestOptions())
             .map((response: Response) => response.json()).catch(this._errorhandler);
     }
 

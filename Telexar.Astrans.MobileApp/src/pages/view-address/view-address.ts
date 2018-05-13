@@ -1,7 +1,7 @@
 import { AddAddressPage } from './../add-address/add-address';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { Service } from '../../providers/service/service';
+import { AstranService } from '../../providers/astran-service/astran-service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -16,7 +16,7 @@ export class ViewAddressPage {
     public navParams: NavParams,
     public toastCtrl: ToastController,
     private fb: FormBuilder,
-    private service: Service) {
+    private astranService: AstranService) {
   }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class ViewAddressPage {
   }
 
   getInitData() {
-    this.service.getListOfAddresses().subscribe(data => {
+    this.astranService.getListOfAddresses().subscribe(data => {
       console.log(JSON.parse(data));
       this.addresses = JSON.parse(data);
     }, error => {
