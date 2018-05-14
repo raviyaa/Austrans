@@ -23,6 +23,7 @@ module.exports = function () {
     router.post('/editAddress', addressController.editAddress);
 
     router.get('/getListPackageTypes', itemController.getListPackageTypes);
+    router.get('/getListOfBookings', itemController.getListOfBookings);
 
     return router;
 };

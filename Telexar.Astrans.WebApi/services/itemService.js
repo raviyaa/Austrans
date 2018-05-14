@@ -11,10 +11,21 @@ function getListPackageTypes(callback) {
     });
 }
 
+function getListOfBookings(callback) {
+    connection.query('SELECT * from api_bookings', function (err, results) {
+        if (err) {
+            callback(null, JSON.stringify(err));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
+
 
 
 module.exports = {
-    getListPackageTypes: getListPackageTypes
+    getListPackageTypes: getListPackageTypes,
+    getListOfBookings:getListOfBookings
 };
 
 

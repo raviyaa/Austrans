@@ -19,6 +19,22 @@ function getListPackageTypes(req, res) {
     });
 }
 
+function getListOfBookings(req, res) {
+    async.waterfall([
+        function (callback) {
+            itemService.getListOfBookings(function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
 module.exports = {
-    getListPackageTypes: getListPackageTypes
+    getListPackageTypes: getListPackageTypes,
+    getListOfBookings:getListOfBookings
 };
