@@ -1,6 +1,6 @@
 {
   "DASHBOARD": {
-    "TITLE":"Dashboard"
+    "TITLE": "Dashboard"
   },
   "ADDRESS_BOOK": {
     "ADD_ADDRESS_BOOK": {
@@ -45,8 +45,20 @@
       "BTN_BOOKING": "Booking Overview"
     },
     "ITEM": {
-      "TITLE": "Item"
+      "TITLE": "Item",
+      "CREATE_ITEM": {
+        "TYPE": "Packaging Type",
+        "QTY": "Qty",
+        "LENGTH": "Length",
+        "WIDTH": "Width",
+        "HEIGHT": "Height",
+        "WEIGHT": "Weight",
+        "VOL": "Volume"
+      }
     }
+  },
+  "BOOKING_OVERVIEW": {
+    "TITLE": "Booking Overview"
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",
