@@ -3,6 +3,7 @@ var express = require('express');
 
 var userController = require('./controllers/userController');
 var addressController = require('./controllers/addressController');
+var itemController = require('./controllers/itemController');
 
 module.exports = function () {
 
@@ -20,6 +21,9 @@ module.exports = function () {
     router.get('/getListOfAddress', addressController.getListOfAddress);
     router.post('/deleteAddress', addressController.deleteAddress);
     router.post('/editAddress', addressController.editAddress);
+
+    router.get('/getListPackageTypes', itemController.getListPackageTypes);
+
     return router;
 };
 
