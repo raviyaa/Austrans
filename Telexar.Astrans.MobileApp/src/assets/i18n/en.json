@@ -32,6 +32,14 @@
       "SELEC_TYPE": "Select Type"
     }
   },
+  "CONSIGNMENT": {
+    "TITLE":"Consignment",
+    "DASHBOARD": {
+      "BTN_DOMESTIC":"Order Entry Domestic",
+      "BTN_INT":"Order Entry  International",
+      "BTN_BOOKING":"Booking Overview"
+    }
+  },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",
   "EMAIL": "Email",

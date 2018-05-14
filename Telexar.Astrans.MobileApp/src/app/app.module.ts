@@ -18,6 +18,7 @@ import { AddAddressPage } from '../pages/add-address/add-address';
 import { ViewAddressPage } from '../pages/view-address/view-address';
 import { AddressPopoverComponent } from '../components/address-popover/address-popover';
 import { AstronPreloader } from '../providers/astron-preloader/astron-preloader';
+import { ConsignmentDashboardPage } from '../pages/consignment-dashboard/consignment-dashboard';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -42,7 +43,8 @@ export function provideSettings(storage: Storage) {
     DashboardPage,
     AddAddressPage,
     ViewAddressPage,
-    AddressPopoverComponent
+    AddressPopoverComponent,
+    ConsignmentDashboardPage
   ],
   imports: [
     FormsModule,
@@ -66,7 +68,8 @@ export function provideSettings(storage: Storage) {
     DashboardPage,
     AddAddressPage,
     ViewAddressPage,
-    AddressPopoverComponent
+    AddressPopoverComponent,
+    ConsignmentDashboardPage
   ],
   providers: [
     Camera,

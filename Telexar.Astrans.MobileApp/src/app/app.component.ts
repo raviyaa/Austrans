@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
+import { ConsignmentDashboardPage } from '../pages/consignment-dashboard/consignment-dashboard';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,8 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: DashboardPage },
-      { title: 'Addrress Book', component: ViewAddressPage }
+      { title: 'Addrress Book', component: ViewAddressPage },
+      { title: 'Consignment', component: ConsignmentDashboardPage }
     ];
   }
 
