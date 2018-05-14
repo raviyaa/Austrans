@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list *ngFor="let booking of bookings">
-    <ion-card>
+    <ion-card (click)="viewBooking(booking)">
 
       <ion-item>
         <ion-label icon-left>
@@ -47,7 +47,7 @@
           {{ 'BOOKING_OVERVIEW.DEL_ADDRESS' | translate }}
         </ion-label>
         <ion-label>
-          {{booking.delivary_address}}
+          {{booking.delivery_address}}
         </ion-label>
       </ion-item>
 
@@ -57,7 +57,7 @@
           {{ 'BOOKING_OVERVIEW.Price' | translate }}
         </ion-label>
         <ion-label>
-          {{booking.api_quote_price}}
+          {{booking.api_qoute_price}}
         </ion-label>
       </ion-item>
 

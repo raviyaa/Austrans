@@ -67,6 +67,9 @@
     "PICKUP_EARLIESTE": "Pickup Earlieste",
     "BOOKED_IN": "Booked In"
   },
+  "VIEW_BOOKING":{
+    "TITLE":"Booking Detail"
+  },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",
   "EMAIL": "Email",

@@ -30,5 +30,7 @@ export class BookingOverviewPage {
       console.log(error)
     });
   }
-
+  viewBooking(data) {
+    console.log(data);
+  }
 }

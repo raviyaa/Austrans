@@ -21,6 +21,7 @@ import { AstronPreloader } from '../providers/astron-preloader/astron-preloader'
 import { ConsignmentDashboardPage } from '../pages/consignment-dashboard/consignment-dashboard';
 import { CreateItemPage } from '../pages/create-item/create-item';
 import { BookingOverviewPage } from '../pages/booking-overview/booking-overview';
+import { ViewBookingPage } from '../pages/view-booking/view-booking';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -48,7 +49,8 @@ export function provideSettings(storage: Storage) {
     AddressPopoverComponent,
     ConsignmentDashboardPage,
     CreateItemPage,
-    BookingOverviewPage
+    BookingOverviewPage,
+    ViewBookingPage
   ],
   imports: [
     FormsModule,
@@ -75,7 +77,8 @@ export function provideSettings(storage: Storage) {
     AddressPopoverComponent,
     ConsignmentDashboardPage,
     CreateItemPage,
-    BookingOverviewPage
+    BookingOverviewPage,
+    ViewBookingPage
   ],
   providers: [
     Camera,
