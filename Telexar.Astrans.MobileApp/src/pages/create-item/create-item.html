@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'CONSIGNMENT.ITEM.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="itemForm" (submit)="addItem()">
+    <ion-list formArrayName="items">
+      <ion-card *ngFor="let item of itemForm.controls.items.controls; let i=index" [formGroupName]="i">
+        <ion-item>
+          <ion-label>Type</ion-label>
+          <ion-input formControlName="type"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Qty</ion-label>
+          <ion-input formControlName="qty" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>length</ion-label>
+          <ion-input formControlName="length" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>width</ion-label>
+          <ion-input formControlName="width" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button type="button" (click)="removeState(i, item)" *ngIf="itemForm.controls.items.controls.length>1">
+            <i class="fa fa-close"></i>
+          </button>
+        </ion-item>
+      </ion-card>
+      <button type="button" (click)="addItem()">
+        <i class="fa fa-plus-square"></i> Add</button>
+    </ion-list>
+  </form>
+</ion-content>

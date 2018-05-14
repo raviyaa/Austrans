@@ -8,8 +8,7 @@ export class AstronPreloader {
 
     show() {
         this.loading = this.loadingCtrl.create({
-            spinner: 'hide',
-            content: 'Loading Please Wait...'
+            content: 'Please Wait...'
         });
 
         this.loading.present();

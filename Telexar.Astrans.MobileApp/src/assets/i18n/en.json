@@ -1,6 +1,10 @@
 {
+  "DASHBOARD": {
+    "TITLE":"Dashboard"
+  },
   "ADDRESS_BOOK": {
     "ADD_ADDRESS_BOOK": {
+      "TITLE": "Add Address",
       "REFERENCE": "Reference",
       "COMPANY_NAME": "Company Name",
       "FIRST_NAME": "First Name",
@@ -17,6 +21,7 @@
       "BTN_SAVE": "Save"
     },
     "VIEW_ADDRESS_BOOK": {
+      "TITLE": "Address",
       "REFERENCE": "Reference",
       "COMPANY_NAME": "Company Name",
       "FIRST_NAME": "First Name",
@@ -33,11 +38,14 @@
     }
   },
   "CONSIGNMENT": {
-    "TITLE":"Consignment",
+    "TITLE": "Consignment",
     "DASHBOARD": {
-      "BTN_DOMESTIC":"Order Entry Domestic",
-      "BTN_INT":"Order Entry  International",
-      "BTN_BOOKING":"Booking Overview"
+      "BTN_DOMESTIC": "Order Entry Domestic",
+      "BTN_INT": "Order Entry  International",
+      "BTN_BOOKING": "Booking Overview"
+    },
+    "ITEM": {
+      "TITLE": "Item"
     }
   },
   "BACK_BUTTON_TEXT": "Back",

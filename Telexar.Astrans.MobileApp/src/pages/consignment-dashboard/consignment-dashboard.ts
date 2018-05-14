@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CreateItemPage } from '../create-item/create-item';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ConsignmentDashboardPage {
   }
 
   domesticClicked() {
-    console.log('dom');
+    this.navCtrl.push(CreateItemPage);
   }
   internationalClicked() {
 
