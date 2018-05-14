@@ -67,8 +67,53 @@
     "PICKUP_EARLIESTE": "Pickup Earlieste",
     "BOOKED_IN": "Booked In"
   },
-  "VIEW_BOOKING":{
-    "TITLE":"Booking Detail"
+  "VIEW_BOOKING": {
+    "TITLE": "Booking Detail",
+    "BOOKING_INFO": {
+      "TITLE": "Booking Information",
+      "CARRIER_NO": "Carrier Booking Number",
+      "BOOKING_ID": "Booking ID",
+      "CONSIGNMENT": "Consignment",
+      "MANIFEST": "Manifest",
+      "CARRIER": "Carrier",
+      "CDATE": "Created Date",
+      "PRICE": "Total Price",
+      "RDATE": "Ready Date"
+    },
+    "PICKUP_INFO": {
+      "TITLE": "Pickup Contact Information",
+      "CONTACT": "Contact",
+      "ADDRESS": "Address"
+    },
+    "DELIVERY_INFO": {
+      "TITLE": "Delivery  Contact Information",
+      "CONTACT": "Contact",
+      "ADDRESS": "Address"
+    },
+    "ITEM_INFO": {
+      "TITLE": "Item Information"
+    },
+    "CARRIER_INFO": {
+      "TITLE": "Carrier Information",
+      "NAME":"Carrier Name",
+      "URL":"Carrirer URL",
+      "COM_NO":"Comapny No",
+      "NO":"Number"
+    },
+    "PAYMENT_INFO": {
+      "TITLE": "Payment Information",
+      "TYPE":"Type",
+      "ACC_NAME":"Account Name",
+      "ACC_NO":"Account No"
+    },
+    "ACC_QUOTE": {
+      "TITLE": "Accepted Quote",
+      "EDT":"EDT",
+      "TRACK":"Online Tracking",
+      "INSCURANCE":"Insurance included",
+      "CRBN_OFST":"Carbon offset",
+      "PRICING":"Pricing"
+    }
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",

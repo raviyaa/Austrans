@@ -1,12 +1,245 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>{{ 'VIEW_BOOKING.TITLE' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-  </ion-content>
-  
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'VIEW_BOOKING.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.BOOKING_INFO.TITLE' | translate }}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.CARRIER_NO' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking?.consignment_number}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-book"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.BOOKING_ID' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.austrans_booking_number}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-book"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.MANIFEST' | translate }}
+        </ion-label>
+        <ion-label>
+          --
+          <!--   {{booking.austrans_booking_number}} -->
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.CARRIER' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.total_weight}} {{booking.weight_measurement}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="far fa-calendar-alt"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.CDATE' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.created_at | date:'MM/dd/yyyy'}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="far fa-calendar-alt"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.PRICE' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.customer_qoute_price}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="far fa-calendar-alt"></i>
+          {{ 'VIEW_BOOKING.BOOKING_INFO.RDATE' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.pickup_earlieste | date:'MM/dd/yyyy'}}
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.PICKUP_INFO.TITLE' | translate }}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'VIEW_BOOKING.PICKUP_INFO.CONTACT' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking?.pickup_f_name}} {{booking?.pickup_l_name}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.PICKUP_INFO.ADDRESS' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.pickup_address}}
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.DELIVERY_INFO.TITLE' | translate }}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'VIEW_BOOKING.DELIVERY_INFO.CONTACT' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking?.delivery_f_name}} {{booking?.delivery_l_name}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.DELIVERY_INFO.ADDRESS' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.delivery_address}}
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.ITEM_INFO.TITLE' | translate }}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          <b>{{booking?.package_type}}</b> : {{booking?.length}} X {{booking?.width}} X {{booking?.height}} {{booking?.lwh_measurement}}
+          @ {{booking?.weight}} {{booking?.weight_measurement}} X {{booking?.quantity}}
+        </ion-label>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.CARRIER_INFO.TITLE' | translate }}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'VIEW_BOOKING.CARRIER_INFO.NAME' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking?.qoute_carrier_name}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.CARRIER_INFO.URL' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.qoute_carrier_url}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.CARRIER_INFO.COM_NO' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.qoute_carrier_id}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.CARRIER_INFO.NO' | translate }}
+        </ion-label>
+        <ion-label>
+          --
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.PAYMENT_INFO.TITLE' | translate }}
+      </ion-card-header>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'VIEW_BOOKING.PAYMENT_INFO.TYPE' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking?.payment_type}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.PAYMENT_INFO.ACC_NAME' | translate }}
+        </ion-label>
+        <ion-label>
+          <!-- {{booking.qoute_carrier_url}} -->
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'VIEW_BOOKING.PAYMENT_INFO.ACC_NO' | translate }}
+        </ion-label>
+        <ion-label>
+          <!-- {{booking.qoute_carrier_url}} -->
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        {{ 'VIEW_BOOKING.ACC_QUOTE.TITLE' | translate }}
+      </ion-card-header>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

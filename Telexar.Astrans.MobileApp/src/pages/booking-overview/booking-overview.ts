@@ -1,3 +1,4 @@
+import { ViewBookingPage } from './../view-booking/view-booking';
 import { AstronPreloader } from './../../providers/astron-preloader/astron-preloader';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -31,6 +32,6 @@ export class BookingOverviewPage {
     });
   }
   viewBooking(data) {
-    console.log(data);
+    this.navCtrl.push(ViewBookingPage, data);
   }
 }
