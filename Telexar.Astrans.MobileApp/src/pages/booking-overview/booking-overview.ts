@@ -1,5 +1,7 @@
+import { AstronPreloader } from './../../providers/astron-preloader/astron-preloader';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AstranService } from '../../providers/astran-service/astran-service';
 
 @Component({
   selector: 'page-booking-overview',
@@ -7,12 +9,26 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class BookingOverviewPage {
 
+  bookings: any;
+
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private astranService: AstranService,
+    private astronPreloader: AstronPreloader
   ) {
   }
-
- 
+  ngOnInit() {
+    this.getInitData();
+  }
+  getInitData() {
+    this.astronPreloader.show();
+    this.astranService.getListOfBookings().subscribe(data => {
+      this.astronPreloader.hide();
+      this.bookings = data;
+    }, error => {
+      console.log(error)
+    });
+  }
 
 }

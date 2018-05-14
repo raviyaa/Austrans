@@ -58,7 +58,14 @@
     }
   },
   "BOOKING_OVERVIEW": {
-    "TITLE": "Booking Overview"
+    "TITLE": "Booking Overview",
+    "BOOKING_NO": "Booking No",
+    "CONSI_NO": "Consignment No",
+    "PICKUP_ADDRESS": "Pickup Address",
+    "DEL_ADDRESS": "Delivery Address",
+    "Price": "Price",
+    "PICKUP_EARLIESTE": "Pickup Earlieste",
+    "BOOKED_IN": "Booked In"
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",

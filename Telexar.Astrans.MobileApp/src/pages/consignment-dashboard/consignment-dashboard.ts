@@ -1,3 +1,4 @@
+import { BookingOverviewPage } from './../booking-overview/booking-overview';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CreateItemPage } from '../create-item/create-item';
@@ -22,6 +23,6 @@ export class ConsignmentDashboardPage {
 
   }
   bookingClicked() {
-
+    this.navCtrl.push(BookingOverviewPage);
   }
 }

@@ -1,12 +1,86 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>{{ 'BOOKING_OVERVIEW.TITLE' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-  </ion-content>
-  
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'BOOKING_OVERVIEW.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let booking of bookings">
+    <ion-card>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-book"></i>
+          {{ 'BOOKING_OVERVIEW.BOOKING_NO' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.austrans_booking_number}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="far fa-bookmark"></i>
+          {{ 'BOOKING_OVERVIEW.CONSI_NO' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.consignment_number}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-map-marker"></i>
+          {{ 'BOOKING_OVERVIEW.PICKUP_ADDRESS' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.pickup_address}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-truck"></i>
+          {{ 'BOOKING_OVERVIEW.DEL_ADDRESS' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.delivary_address}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-money-bill"></i>
+          {{ 'BOOKING_OVERVIEW.Price' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.api_quote_price}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="far fa-calendar-alt"></i>
+          {{ 'BOOKING_OVERVIEW.PICKUP_EARLIESTE' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.pickup_earlieste | date:'MM/dd/yyyy'}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="far fa-calendar"></i>
+          {{ 'BOOKING_OVERVIEW.BOOKED_IN' | translate }}
+        </ion-label>
+        <ion-label>
+          {{booking.created_at | date:'MM/dd/yyyy'}}
+        </ion-label>
+      </ion-item>
+
+    </ion-card>
+  </ion-list>
+</ion-content>
