@@ -8,4 +8,49 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-list *ngFor="let invoice of invoices">
+    <ion-card>
+
+        <ion-item>
+            <ion-label icon-left>
+              <i class="fas fa-bookmark"></i>
+              {{ 'INVOICE.VIEW_INVOICE.LBL_ACCNO' | translate }}
+            </ion-label>
+            <ion-label>
+              {{invoice?.transaction_id}}
+            </ion-label>
+          </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'INVOICE.VIEW_INVOICE.LBL_INVOICENO' | translate }}
+        </ion-label>
+        <ion-label>
+          {{invoice?.invoice_number}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'INVOICE.VIEW_INVOICE.LBL_AMOUNT' | translate }}
+        </ion-label>
+        <ion-label>
+          {{invoice?.total_price}}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label icon-left>
+          <i class="fas fa-bookmark"></i>
+          {{ 'INVOICE.VIEW_INVOICE.LBL_OUTS_AMOUNT' | translate }}
+        </ion-label>
+        <ion-label>
+          {{invoice?.outstanding_price}}
+        </ion-label>
+      </ion-item>
+
+    </ion-card>
+  </ion-list>
 </ion-content>

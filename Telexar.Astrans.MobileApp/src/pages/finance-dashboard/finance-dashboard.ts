@@ -1,3 +1,4 @@
+import { PaymentDashboardPage } from './../payment-dashboard/payment-dashboard';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { InvoicePage } from '../invoice/invoice';
@@ -19,6 +20,6 @@ export class FinanceDashboardPage {
     this.navCtrl.push(InvoicePage);
   }
   paymentClicked() {
-    console.log("pay");
+    this.navCtrl.push(PaymentDashboardPage);
   }
 }

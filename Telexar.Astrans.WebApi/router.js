@@ -4,6 +4,7 @@ var express = require('express');
 var userController = require('./controllers/userController');
 var addressController = require('./controllers/addressController');
 var itemController = require('./controllers/itemController');
+var financeController = require('./controllers/financeController');
 
 module.exports = function () {
 
@@ -25,6 +26,7 @@ module.exports = function () {
     router.get('/getListPackageTypes', itemController.getListPackageTypes);
     router.get('/getListOfBookings', itemController.getListOfBookings);
 
+    router.get('/getListOfInvoices', financeController.getListOfInvoice);
     return router;
 };
 

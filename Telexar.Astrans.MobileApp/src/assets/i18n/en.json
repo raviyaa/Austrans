@@ -116,7 +116,19 @@
     }
   },
   "INVOICE": {
-    "TITLE": "Invoice"
+    "TITLE": "Invoice",
+    "VIEW_INVOICE": {
+      "LBL_ACCNO": "Account No",
+      "LBL_INVOICENO": "Invoice No",
+      "LBL_AMOUNT": "Amount",
+      "LBL_OUTS_AMOUNT": "Outstanding Amount",
+      "LBL_DUEE_DATE": "Due Date"
+    }
+  },
+  "PAYMENT_DASHBOARD": {
+    "TITLE":"Payment Methods",
+    "BTN_PAYPAL":"Paypal",
+    "BTN_STRIPE":"Stripe"
   },
   "FINANCE_DASHBOARD": {
     "TITLE": "Finance",

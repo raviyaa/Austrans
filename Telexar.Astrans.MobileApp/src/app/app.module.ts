@@ -1,3 +1,4 @@
+import { PaymentDashboardPage } from './../pages/payment-dashboard/payment-dashboard';
 import { InvoicePage } from './../pages/invoice/invoice';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -25,19 +26,13 @@ import { BookingOverviewPage } from '../pages/booking-overview/booking-overview'
 import { ViewBookingPage } from '../pages/view-booking/view-booking';
 import { FinanceDashboardPage } from '../pages/finance-dashboard/finance-dashboard';
 
-// The translate loader needs to know where to load i18n files
-// in Ionic's static asset pipeline.
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 export function provideSettings(storage: Storage) {
-  /**
-   * The Settings provider takes a set of default settings for your app.
-   *
-   * You can add new settings options at any time. Once the settings are saved,
-   * these values will not overwrite the saved values (this can be done manually if desired).
-   */
+
 
 }
 
@@ -54,7 +49,8 @@ export function provideSettings(storage: Storage) {
     BookingOverviewPage,
     ViewBookingPage,
     FinanceDashboardPage,
-    InvoicePage
+    InvoicePage,
+    PaymentDashboardPage
   ],
   imports: [
     FormsModule,
@@ -84,7 +80,8 @@ export function provideSettings(storage: Storage) {
     BookingOverviewPage,
     ViewBookingPage,
     FinanceDashboardPage,
-    InvoicePage
+    InvoicePage,
+    PaymentDashboardPage
   ],
   providers: [
     Camera,
