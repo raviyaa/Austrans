@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'FINANCE_DASHBOARD.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <button ion-button full outline large (click)="invoiceClicked()">
+        <i class="fas fa-truck" padding></i>
+        {{'FINANCE_DASHBOARD.BTN_INVOICE' | translate }}</button>
+    </ion-item>
+    <ion-item>
+      <button ion-button full outline large (click)="paymentClicked()">
+        <i class="fas fa-globe" padding></i>
+        {{'FINANCE_DASHBOARD.BTN_PAYMENT' | translate }}</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

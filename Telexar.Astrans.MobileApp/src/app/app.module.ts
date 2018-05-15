@@ -1,3 +1,4 @@
+import { InvoicePage } from './../pages/invoice/invoice';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { ConsignmentDashboardPage } from '../pages/consignment-dashboard/consign
 import { CreateItemPage } from '../pages/create-item/create-item';
 import { BookingOverviewPage } from '../pages/booking-overview/booking-overview';
 import { ViewBookingPage } from '../pages/view-booking/view-booking';
+import { FinanceDashboardPage } from '../pages/finance-dashboard/finance-dashboard';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -50,7 +52,9 @@ export function provideSettings(storage: Storage) {
     ConsignmentDashboardPage,
     CreateItemPage,
     BookingOverviewPage,
-    ViewBookingPage
+    ViewBookingPage,
+    FinanceDashboardPage,
+    InvoicePage
   ],
   imports: [
     FormsModule,
@@ -78,7 +82,9 @@ export function provideSettings(storage: Storage) {
     ConsignmentDashboardPage,
     CreateItemPage,
     BookingOverviewPage,
-    ViewBookingPage
+    ViewBookingPage,
+    FinanceDashboardPage,
+    InvoicePage
   ],
   providers: [
     Camera,

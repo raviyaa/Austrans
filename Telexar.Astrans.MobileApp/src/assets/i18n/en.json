@@ -95,25 +95,33 @@
     },
     "CARRIER_INFO": {
       "TITLE": "Carrier Information",
-      "NAME":"Carrier Name",
-      "URL":"Carrirer URL",
-      "COM_NO":"Comapny No",
-      "NO":"Number"
+      "NAME": "Carrier Name",
+      "URL": "Carrirer URL",
+      "COM_NO": "Comapny No",
+      "NO": "Number"
     },
     "PAYMENT_INFO": {
       "TITLE": "Payment Information",
-      "TYPE":"Type",
-      "ACC_NAME":"Account Name",
-      "ACC_NO":"Account No"
+      "TYPE": "Type",
+      "ACC_NAME": "Account Name",
+      "ACC_NO": "Account No"
     },
     "ACC_QUOTE": {
       "TITLE": "Accepted Quote",
-      "EDT":"EDT",
-      "TRACK":"Online Tracking",
-      "INSCURANCE":"Insurance included",
-      "CRBN_OFST":"Carbon offset",
-      "PRICING":"Pricing"
+      "EDT": "EDT",
+      "TRACK": "Online Tracking",
+      "INSCURANCE": "Insurance included",
+      "CRBN_OFST": "Carbon offset",
+      "PRICING": "Pricing"
     }
+  },
+  "INVOICE": {
+    "TITLE": "Invoice"
+  },
+  "FINANCE_DASHBOARD": {
+    "TITLE": "Finance",
+    "BTN_INVOICE": "Invoice",
+    "BTN_PAYMENT": "Payment"
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",

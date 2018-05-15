@@ -1,3 +1,4 @@
+import { FinanceDashboardPage } from './../pages/finance-dashboard/finance-dashboard';
 import { ViewAddressPage } from './../pages/view-address/view-address';
 import { DashboardPage } from './../pages/dashboard/dashboard';
 import { Component, ViewChild } from '@angular/core';
@@ -13,9 +14,9 @@ import { ConsignmentDashboardPage } from '../pages/consignment-dashboard/consign
 })
 export class MyApp {
   rootPage = LoginPage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
   @ViewChild(Nav) nav: Nav;
-  constructor(private translate: TranslateService,public  platform: Platform, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService, public platform: Platform, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -27,7 +28,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: DashboardPage },
       { title: 'Addrress Book', component: ViewAddressPage },
-      { title: 'Consignment', component: ConsignmentDashboardPage }
+      { title: 'Consignment', component: ConsignmentDashboardPage },
+      { title: 'Finance', component: FinanceDashboardPage }
     ];
   }
 
@@ -52,9 +54,9 @@ export class MyApp {
       this.translate.use('en'); // Set your language here
     }
 
-  /*   this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
-    }); */
+    /*   this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+        this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+      }); */
   }
 
   openPage(page) {
