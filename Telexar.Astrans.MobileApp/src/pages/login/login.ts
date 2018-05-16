@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { APP_DI_CONFIG } from '../../app/app-config/app-config.constants';
 import { AstranService } from '../../providers/astran-service/astran-service';
 import * as _ from 'underscore';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-login',
