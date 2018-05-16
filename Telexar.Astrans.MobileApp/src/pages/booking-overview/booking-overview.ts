@@ -3,6 +3,7 @@ import { AstronPreloader } from './../../providers/astron-preloader/astron-prelo
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AstranService } from '../../providers/astran-service/astran-service';
+import { AstronToast } from '../../providers/astraon-toast/astron-toast';
 
 @Component({
   selector: 'page-booking-overview',
@@ -16,6 +17,7 @@ export class BookingOverviewPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private astranService: AstranService,
+    private astronToast: AstronToast,
     private astronPreloader: AstronPreloader
   ) {
   }
@@ -28,7 +30,7 @@ export class BookingOverviewPage {
       this.astronPreloader.hide();
       this.bookings = data;
     }, error => {
-      console.log(error)
+      this.astronToast.makeToast("Something went wrong!!!");
     });
   }
   viewBooking(data) {

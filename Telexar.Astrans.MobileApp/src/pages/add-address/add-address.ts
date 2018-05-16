@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AstranService } from '../../providers/astran-service/astran-service';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'underscore';
+import { AstronToast } from '../../providers/astraon-toast/astron-toast';
 
 @Component({
   selector: 'page-add-address',
@@ -19,7 +20,7 @@ export class AddAddressPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public toastCtrl: ToastController,
+    private astronToast: AstronToast,
     private fb: FormBuilder,
     private astranService: AstranService,
     public translateService: TranslateService) {
@@ -52,22 +53,22 @@ export class AddAddressPage {
         if (!_.isEmpty(this.navParams.data)) {
           p.id = this.navParams.data.id;
           this.astranService.editAddresses(p).subscribe(data => {
-            this.createToast("Update successful!");
+            this.astronToast.makeToast("Update successful!");
             this.navCtrl.push(ViewAddressPage);
           }, error => {
             console.log(error);
-            this.createToast("Something went wrong!!!");
+            this.astronToast.makeToast("Something went wrong!!!");
           });
         } else {
-          this.createToast("Something went wrong!!!");
+          this.astronToast.makeToast("Something went wrong!!!");
         }
       } else {
         this.astranService.addAddresses(p).subscribe(data => {
-          this.createToast("New Address successfully added!");
+          this.astronToast.makeToast("New Address successfully added!");
           this.navCtrl.push(ViewAddressPage);
         }, error => {
           console.log(error);
-          this.createToast("Something went wrong!!!");
+          this.astronToast.makeToast("Something went wrong!!!");
         }
         );
       }
@@ -88,12 +89,4 @@ export class AddAddressPage {
     });
   }
 
-  createToast(message) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      duration: 3000,
-      position: 'top'
-    });
-    toast.present();
-  }
 }

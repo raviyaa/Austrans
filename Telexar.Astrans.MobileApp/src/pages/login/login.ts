@@ -10,6 +10,7 @@ import { APP_DI_CONFIG } from '../../app/app-config/app-config.constants';
 import { AstranService } from '../../providers/astran-service/astran-service';
 import * as _ from 'underscore';
 import { Storage } from '@ionic/storage';
+import { AstronToast } from '../../providers/astraon-toast/astron-toast';
 
 @Component({
   selector: 'page-login',
@@ -19,7 +20,7 @@ export class LoginPage {
   loginForm: FormGroup;
 
   constructor(public navCtrl: NavController,
-    public toastCtrl: ToastController,
+    private astronToast: AstronToast,
     private fb: FormBuilder,
     private astranService: AstranService,
     public translateService: TranslateService,
@@ -51,36 +52,26 @@ export class LoginPage {
             this.navCtrl.push(DashboardPage);
           } else {
             this.astronPreloader.hide();
-            this.createToast("Check email & password");
+            this.astronToast.makeToast("Check email & password");
           }
         } else {
           this.astronPreloader.hide();
-          this.createToast("Something went wrong!!!");
+          this.astronToast.makeToast("Something went wrong!!!");
         }
       }, error => {
         this.astronPreloader.hide();
-        this.createToast("Something went wrong!!!");
+        this.astronToast.makeToast("Something went wrong!!!");
       });
     } else {
       this.astronPreloader.hide();
-      this.createToast("Please provide email and password");
+      this.astronToast.makeToast("Please provide email and password");
     }
 
   }
 
   signUp() {
-    this.createToast("Please try using web site");
+    this.astronToast.makeToast("Please try using web site");
   }
-  createToast(message) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      duration: 3000,
-      position: 'top'
-    });
-    toast.present();
-  }
-  ngOnDestroy(): void {
-    this.loginForm.reset();
-  }
+
 
 }

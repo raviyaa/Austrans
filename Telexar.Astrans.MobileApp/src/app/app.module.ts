@@ -26,6 +26,7 @@ import { BookingOverviewPage } from '../pages/booking-overview/booking-overview'
 import { ViewBookingPage } from '../pages/view-booking/view-booking';
 import { FinanceDashboardPage } from '../pages/finance-dashboard/finance-dashboard';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { AstronToast } from '../providers/astraon-toast/astron-toast';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -92,6 +93,7 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     AstranService,
     AstronPreloader,
+    AstronToast,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
