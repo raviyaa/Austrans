@@ -6,9 +6,10 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { Config, Nav, Platform, AlertController } from 'ionic-angular';
 import { LoginPage } from '../pages/login/login';
 import { ConsignmentDashboardPage } from '../pages/consignment-dashboard/consignment-dashboard';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,14 @@ export class MyApp {
   rootPage = LoginPage;
   pages: Array<{ title: string, component: any }>;
   @ViewChild(Nav) nav: Nav;
-  constructor(private translate: TranslateService, public platform: Platform, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(
+    private translate: TranslateService,
+    public platform: Platform,
+    private config: Config,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen,
+    private storage: Storage,
+    private alertCtrl: AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -31,7 +39,8 @@ export class MyApp {
       { title: 'Addrress Book', component: ViewAddressPage },
       { title: 'Consignment', component: ConsignmentDashboardPage },
       { title: 'Finance', component: FinanceDashboardPage },
-      { title: 'My Profile', component: UserProfilePage }
+      { title: 'My Profile', component: UserProfilePage },
+      { title: 'Logout', component: '' }
     ];
   }
 
@@ -62,11 +71,35 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.component) {
+      this.nav.setRoot(page.component);
+    } else {
+      this.presentConfirm();
+    }
   }
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Logout',
+      message: 'Are you sure want to logout?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
 
+          }
+        },
+        {
+          text: 'OK',
+          handler: () => {
+            this.storage.clear();
+            this.nav.setRoot(LoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
 
 }
