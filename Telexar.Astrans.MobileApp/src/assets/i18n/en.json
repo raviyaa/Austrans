@@ -135,6 +135,9 @@
     "BTN_INVOICE": "Invoice",
     "BTN_PAYMENT": "Payment"
   },
+  "USER_PROFILE":{
+    "TITLE":"Profile Info"
+  },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",
   "EMAIL": "Email",

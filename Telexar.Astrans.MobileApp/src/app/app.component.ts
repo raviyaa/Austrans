@@ -1,3 +1,4 @@
+import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { FinanceDashboardPage } from './../pages/finance-dashboard/finance-dashboard';
 import { ViewAddressPage } from './../pages/view-address/view-address';
 import { DashboardPage } from './../pages/dashboard/dashboard';
@@ -29,7 +30,8 @@ export class MyApp {
       { title: 'Home', component: DashboardPage },
       { title: 'Addrress Book', component: ViewAddressPage },
       { title: 'Consignment', component: ConsignmentDashboardPage },
-      { title: 'Finance', component: FinanceDashboardPage }
+      { title: 'Finance', component: FinanceDashboardPage },
+      { title: 'My Profile', component: UserProfilePage }
     ];
   }
 

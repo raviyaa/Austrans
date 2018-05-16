@@ -29,7 +29,7 @@
       </ion-item>
 
       <div padding class="login-btn">
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+        <button ion-button color="primary"  [disabled]='!loginForm.valid' block>{{ 'LOGIN_BUTTON' | translate }}</button>
       </div>
       <ion-grid>
         <ion-row class="log-option">

@@ -12,11 +12,11 @@ function getListOfUsers(callback) {
 }
 
 function userLogin(user, callback) {
-    connection.query('SELECT * from users', function (error, results) {
+    connection.query('SELECT * from users WHERE email=? ', [user.email], function (error, results) {
         if (error) {
-            console.log(error);
+            callback(null, JSON.stringify(error));
         } else {
-            console.log(JSON.stringify(results));
+            callback(null, JSON.stringify(results));
         }
     });
 }

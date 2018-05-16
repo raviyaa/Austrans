@@ -13,6 +13,11 @@ export class AstranService {
 
     constructor(private _http: Http) { }
 
+    login(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'userLogin', data, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
+
     getListOfUsers() {
         return this._http.get(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getUsers', HttpConfig.requestOptions())
             .map((response: Response) => response.json()).catch(this._errorhandler);

@@ -25,6 +25,7 @@ import { CreateItemPage } from '../pages/create-item/create-item';
 import { BookingOverviewPage } from '../pages/booking-overview/booking-overview';
 import { ViewBookingPage } from '../pages/view-booking/view-booking';
 import { FinanceDashboardPage } from '../pages/finance-dashboard/finance-dashboard';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -50,7 +51,8 @@ export function provideSettings(storage: Storage) {
     ViewBookingPage,
     FinanceDashboardPage,
     InvoicePage,
-    PaymentDashboardPage
+    PaymentDashboardPage,
+    UserProfilePage
   ],
   imports: [
     FormsModule,
@@ -65,7 +67,7 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot()    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -81,7 +83,8 @@ export function provideSettings(storage: Storage) {
     ViewBookingPage,
     FinanceDashboardPage,
     InvoicePage,
-    PaymentDashboardPage
+    PaymentDashboardPage,
+    UserProfilePage
   ],
   providers: [
     Camera,
@@ -89,7 +92,6 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     AstranService,
     AstronPreloader,
-    // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

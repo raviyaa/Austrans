@@ -5,9 +5,10 @@ import { DashboardPage } from './../dashboard/dashboard';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { APP_DI_CONFIG } from '../../app/app-config/app-config.constants';
 import { AstranService } from '../../providers/astran-service/astran-service';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'page-login',
@@ -15,39 +16,55 @@ import { AstranService } from '../../providers/astran-service/astran-service';
 })
 export class LoginPage {
   loginForm: FormGroup;
-  logoUrl: string = APP_DI_CONFIG.LOGO_URL;
-  private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
     private fb: FormBuilder,
     private astranService: AstranService,
     public translateService: TranslateService,
-    private astronPreloader: AstronPreloader) {
+    private astronPreloader: AstronPreloader,
+    private storage: Storage) {
 
-    this.translateService.get('LOGIN_ERROR').subscribe((value) => {
-      this.loginErrorString = value;
-    })
   }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: ['',],
-      password: ['',],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
 
     });
   }
 
   doLogin() {
     this.astronPreloader.show();
-    this.navCtrl.push(DashboardPage);
-    this.astronPreloader.hide();
+    if (this.loginForm.dirty && this.loginForm.valid) {
+      var data = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      };
+      this.astranService.login(data).subscribe(data => {
+        if (!_.isEmpty(data)) {
+          if (data.status == 'OK') {
+            this.astronPreloader.hide();
+            this.storage.set('user', data.result);
+            this.navCtrl.push(DashboardPage);
+          } else {
+            this.astronPreloader.hide();
+            this.createToast("Check email & password");
+          }
+        } else {
+          this.astronPreloader.hide();
+          this.createToast("Something went wrong!!!");
+        }
+      }, error => {
+        this.astronPreloader.hide();
+        this.createToast("Something went wrong!!!");
+      });
+    } else {
+      this.astronPreloader.hide();
+      this.createToast("Please provide email and password");
+    }
 
-    /*   this.astranService.getListOfUsers().subscribe(data => {
-        console.log("fhasdklfjhdslfjhsdl");
-        console.log(data);
-      },
-        error => { console.log(error) }); */
   }
 
   signUp() {
