@@ -1,12 +1,111 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>{{ 'USER_PROFILE.TITLE' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-  </ion-content>
-  
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'USER_PROFILE.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="userPofileForm" (submit)="saveUser()">
+    <ion-list>
+      <ion-card>
+        <ion-card-header>
+          {{ 'USER_PROFILE.UPDATE_USER.TITLE' | translate }}
+        </ion-card-header>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <i class="far fa-building"></i>
+          </ion-label>
+          <ion-input type="text" formControlName="companyName" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.COMPANY_NAME' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="fName" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.FIRST_NAME' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="lName" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.LAST_NAME' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="address" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.ADDRESS' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input type="email" formControlName="email" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.EMAIL' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="call"></ion-icon>
+          </ion-label>
+          <ion-input type="phone" formControlName="phone" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.PHONE' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="locate"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="location" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.LOCATION' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <i class="far fa-flag"></i>
+          </ion-label>
+          <ion-input type="text" formControlName="country" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.SELECT_COUNTRY' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="pin" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.PIN_CODE' | translate }}"></ion-input>
+        </ion-item>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          {{ 'USER_PROFILE.UPDATE_USER.COMANY.TITLE' | translate }}
+        </ion-card-header>
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <i class="far fa-building"></i>
+          </ion-label>
+          <ion-input type="text" formControlName="compName" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.COMANY.COMPANY_NAME' | translate }}"></ion-input>
+        </ion-item>
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="pin"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="compAddress" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.COMANY.LOCATION' | translate }}"></ion-input>
+        </ion-item>
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="locate"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="compPin" placeholder=" {{ 'USER_PROFILE.UPDATE_USER.COMANY.PIN_CODE' | translate }}"></ion-input>
+        </ion-item>
+      </ion-card>
+
+      <div padding class="login-btn">
+        <button ion-button color="primary" block>{{ 'USER_PROFILE.UPDATE_USER.BTN_SAVE' | translate }}</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

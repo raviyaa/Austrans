@@ -126,17 +126,40 @@
     }
   },
   "PAYMENT_DASHBOARD": {
-    "TITLE":"Payment Methods",
-    "BTN_PAYPAL":"Paypal",
-    "BTN_STRIPE":"Stripe"
+    "TITLE": "Payment Methods",
+    "BTN_PAYPAL": "Paypal",
+    "BTN_STRIPE": "Stripe"
   },
   "FINANCE_DASHBOARD": {
     "TITLE": "Finance",
     "BTN_INVOICE": "Invoice",
     "BTN_PAYMENT": "Payment"
   },
-  "USER_PROFILE":{
-    "TITLE":"Profile Info"
+  "USER_PROFILE": {
+    "TITLE": "Profile Info",
+    "UPDATE_USER": {
+      "TITLE": "My Profile",
+      "REFERENCE": "Reference",
+      "COMPANY_NAME": "Company Name",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "ADDRESS": "Address",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "SELECT_COUNTRY": "Select Country",
+      "LOCATION": "Location",
+      "STATE": "State",
+      "CITY": "City",
+      "PIN_CODE": "PIN Code",
+      "SELEC_TYPE": "Select Type",
+      "BTN_SAVE": "Update",
+      "COMANY":{
+        "TITLE":"Company Detail",
+        "COMPANY_NAME": "Company Name",
+        "LOCATION": "Location",
+        "PIN_CODE": "PIN Code"
+      }
+    }
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",
