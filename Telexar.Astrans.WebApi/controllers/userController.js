@@ -20,6 +20,7 @@ function getListOfUsers(req, res) {
         utils.processResponse(err, result, res);
     });
 }
+
 function userLogin(req, res) {
     async.waterfall([
         function (callback) {
@@ -66,7 +67,50 @@ function userLogin(req, res) {
         utils.processResponse(err, result, res);
     });
 }
+
+function updateUser(req, res) {
+    async.waterfall([
+        function (callback) {
+            var userObj = {
+                id: req.body.id,
+                company_name: req.body.companyName,
+                first_name: req.body.fName,
+                last_name: req.body.lName,
+                address1: req.body.address,
+                email: req.body.email,
+                phone: req.body.phone
+            };
+            userService.updateUser(userObj, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
+function getUserById(req, res) {
+    async.waterfall([
+        function (callback) {
+            console.log("dfusbfd"+req.params.id);
+            userService.getUserById(req.params.id, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
 module.exports = {
     getListOfUsers: getListOfUsers,
-    userLogin: userLogin
+    userLogin: userLogin,
+    updateUser: updateUser,
+    getUserById: getUserById
 };

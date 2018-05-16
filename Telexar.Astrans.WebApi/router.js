@@ -17,6 +17,8 @@ module.exports = function () {
     
     router.get('/getUsers', userController.getListOfUsers);
     router.post('/userLogin', userController.userLogin);
+    router.post('/updateUser', userController.updateUser);
+    router.post('/getUserById/:id', userController.getUserById);
 
     router.post('/addAddress', addressController.addAddress);
     router.get('/getListOfAddress', addressController.getListOfAddress);

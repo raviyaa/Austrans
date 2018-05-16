@@ -37,7 +37,7 @@ export class AstranService {
         return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'editAddress', data, HttpConfig.requestOptions())
             .map((response: Response) => response.json()).catch(this._errorhandler);
     }
-    
+
     deleteAddresses(data) {
         return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'deleteAddress', data, HttpConfig.requestOptions())
             .map((response: Response) => response.json()).catch(this._errorhandler);
@@ -56,6 +56,16 @@ export class AstranService {
     getListOfInvoices() {
         return this._http.get(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getListOfInvoices', HttpConfig.requestOptions())
             .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
+    }
+
+    updateUser(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'updateUser', data, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
+
+    getUserById(id) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getUserById/' + id, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
     }
 
     _errorhandler(error: Response) {

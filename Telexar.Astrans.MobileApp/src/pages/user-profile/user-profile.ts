@@ -6,6 +6,7 @@ import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import * as _ from 'underscore';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { DashboardPage } from '../dashboard/dashboard';
 
 
 @Component({
@@ -74,6 +75,36 @@ export class UserProfilePage {
     });
   }
   saveUser() {
+    this.astronPreloader.show();
+    if (this.userPofileForm.dirty && this.userPofileForm.valid) {
+      const userObj = this.userPofileForm.value;
+      userObj.id = this.user.id;
+      this.astranService.updateUser(userObj).subscribe(data => {
+        if (!_.isEmpty(data)) {
+          this.astronPreloader.hide();
+          if (data.status === 'OK') {
+            this.navCtrl.push(DashboardPage);
+            this.astronToast.makeToast("Successfully updated!");
+            this.storage.clear();
+            this.astranService.getUserById(this.user.id).subscribe(data => {
+              this.storage.set('user', data);
+            }, error => {
+              this.astronPreloader.hide();
+              this.astronToast.makeToast("Something went wrong!!!");
+            });
+          } else {
+            this.astronToast.makeToast("Something went wrong!!!");
+          }
+        } else {
+          this.astronPreloader.hide();
+          this.astronToast.makeToast("Something went wrong!!!");
+        }
+      }, error => {
+        this.astronPreloader.hide();
+        this.astronToast.makeToast("Something went wrong!!!");
+      });
+    } else {
 
+    }
   }
 }
