@@ -39,9 +39,7 @@ export class ViewAddressPage {
       this.astronPreloader.hide();
       this.user = JSON.parse(user)[0];
       if (!_.isEmpty(user)) {
-        console.log(user);
         this.astranService.getListOfAddressesById(this.user.id).subscribe(data => {
-          console.log(JSON.parse(data));
           this.addresses = JSON.parse(data);
         }, error => {
           this.astronToast.makeToast(error);

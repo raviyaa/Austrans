@@ -32,7 +32,6 @@ export class BookingOverviewPage {
     this.astranService.getListOfBookingsById(this.user.id).subscribe(data => {
       this.astronPreloader.hide();
       this.bookings = data;
-      console.log(data);
     }, error => {
       this.astronPreloader.hide();
       this.astronToast.makeToast("Something went wrong!!!");
