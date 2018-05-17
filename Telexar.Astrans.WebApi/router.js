@@ -28,6 +28,7 @@ module.exports = function () {
 
     router.get('/getListPackageTypes', itemController.getListPackageTypes);
     router.get('/getListOfBookings', itemController.getListOfBookings);
+    router.post('/getListOfBookingsById/:id', itemController.getListOfBookingsById);
 
     router.get('/getListOfInvoices', financeController.getListOfInvoice);
     return router;

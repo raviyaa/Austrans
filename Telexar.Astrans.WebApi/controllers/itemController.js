@@ -34,10 +34,26 @@ function getListOfBookings(req, res) {
     });
 }
 
+function getListOfBookingsById(req, res) {
+    async.waterfall([
+        function (callback) {
+            itemService.getListOfBookingsById(req.params.id, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
 
 
 
 module.exports = {
     getListPackageTypes: getListPackageTypes,
-    getListOfBookings:getListOfBookings
+    getListOfBookings:getListOfBookings,
+    getListOfBookingsById:getListOfBookingsById
 };

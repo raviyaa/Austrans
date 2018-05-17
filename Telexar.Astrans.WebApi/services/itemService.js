@@ -32,9 +32,20 @@ function getListOfAddressesById(id, callback) {
     });
 }
 
+function getListOfBookingsById(id, callback) {
+    connection.query('SELECT * from api_bookings WHERE user_id=? ', [id], function (error, results) {
+        if (error) {
+            callback(null, JSON.stringify(error));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
+
 module.exports = {
     getListPackageTypes: getListPackageTypes,
-    getListOfBookings:getListOfBookings
+    getListOfBookings:getListOfBookings,
+    getListOfBookingsById:getListOfBookingsById
 };
 
 
