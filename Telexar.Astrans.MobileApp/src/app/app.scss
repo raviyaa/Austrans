@@ -14,3 +14,51 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.toolbar-background-md {
+    background: rgb(33, 34, 94);
+    color: #fff;
+}
+.fixed-content {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    background-color: rgba(238, 101, 33,0.5);
+}
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff;
+    background-color: transparent;
+}
+.button-md {
+    
+    background-color: transparent;
+    
+}
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color:#fff;
+}
+.side-menu-wraper{
+    background-color: transparent;
+    color:#fff;
+}
+.side-menu-wraper-inner{
+    background-color:transparent;
+    color:#fff;
+}
+.card-md {
+    border-radius: 5px;
+}
+.card-header-md {
+    background-color: rgba(238, 101, 33,0.7);
+}
+.button-md-primary {
+    color: #fff;
+    background-color: rgb(33, 34, 94) !important;
+    width: 400px !important;
+    padding: 23px !important;
+}

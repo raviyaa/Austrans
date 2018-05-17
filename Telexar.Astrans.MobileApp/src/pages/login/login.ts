@@ -18,6 +18,8 @@ import { AstronToast } from '../../providers/astraon-toast/astron-toast';
 })
 export class LoginPage {
   loginForm: FormGroup;
+  logoUrl: string = APP_DI_CONFIG.LOGO2_URL;
+  private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
     private astronToast: AstronToast,

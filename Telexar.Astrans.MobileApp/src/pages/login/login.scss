@@ -7,7 +7,7 @@ page-login {
         height: 170px;
         margin: 0 auto;
         margin-top: 50px;
-        padding: 0px
+        padding: 0px;
     }
     ion-item.sign-form {
         width: auto;
@@ -52,5 +52,15 @@ page-login {
     ion-row.log-option {
         width: 350px;
         margin: 0 auto;
+    }
+    page-login ion-item.sign-form {
+        background-color: transparent;
+    }
+    page-login ion-item.sign-form {
+        background-color: transparent;
+        border-bottom: 1px solid rgb(33, 34, 94);
+    }
+    .item-md {
+        background-color: transparent;
     }
 }

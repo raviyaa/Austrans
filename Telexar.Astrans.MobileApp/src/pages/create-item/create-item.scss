@@ -55,4 +55,22 @@ page-create-item {
         width: 350px;
         margin: 0 auto;
     }
+    .add-item-wrapper{
+        width:100vw;
+    }
+    .add-item {
+        background-color: rgb(33, 34, 94);
+        float: right;
+        margin-bottom: 20px;
+        margin-right: 42px;
+        outline: none;
+        border-style: none;
+    }
+    .remove-item{
+        margin-right: 4px;
+        padding: 11px;
+        float: right;
+        color: #fff;
+        background-color: rgb(33, 34, 94);
+    }
 }

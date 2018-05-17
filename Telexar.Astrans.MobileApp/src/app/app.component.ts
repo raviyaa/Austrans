@@ -1,3 +1,4 @@
+import { CreateItemPage } from './../pages/create-item/create-item';
 import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { FinanceDashboardPage } from './../pages/finance-dashboard/finance-dashboard';
 import { ViewAddressPage } from './../pages/view-address/view-address';

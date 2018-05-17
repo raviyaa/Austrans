@@ -10,22 +10,22 @@
 <ion-content>
   <form [formGroup]="loginForm" (submit)="doLogin()">
     <ion-list>
-      <ion-item class="sign-img">
-        <ion-img width="250" height="170" align="center" [src]="logoUrl" *ngIf="logoUrl"></ion-img>
+      <ion-item style="background-color: rgba(238, 101, 33,0)" class="sign-img">
+        <ion-img  style="background-color: rgba(238, 101, 33,0)" width="250" height="170" align="center" [src]="logoUrl" *ngIf="logoUrl"></ion-img>
       </ion-item>
 
-      <ion-item class="sign-form">
+      <ion-item class="sign-form" style="background-color: rgba(238, 101, 33,0)">
         <ion-label icon-left>
           <ion-icon name="mail"></ion-icon>
         </ion-label>
-        <ion-input type="email" formControlName="email" placeholder=" {{ 'EMAIL' | translate }}"></ion-input>
+        <ion-input style="background-color: rgba(238, 101, 33,0)" type="email" formControlName="email" placeholder=" {{ 'EMAIL' | translate }}"></ion-input>
       </ion-item>
 
-      <ion-item class="sign-form">
+      <ion-item class="sign-form" style="background-color: rgba(238, 101, 33,0)">
         <ion-label icon-left>
           <ion-icon name="key"></ion-icon>
         </ion-label>
-        <ion-input type="password" formControlName="password" placeholder=" {{ 'PASSWORD' | translate }}"></ion-input>
+        <ion-input style="background-color: rgba(238, 101, 33,0)" type="password" formControlName="password" placeholder=" {{ 'PASSWORD' | translate }}"></ion-input>
       </ion-item>
 
       <div padding class="login-btn">
