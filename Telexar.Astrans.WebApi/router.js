@@ -24,6 +24,7 @@ module.exports = function () {
     router.get('/getListOfAddress', addressController.getListOfAddress);
     router.post('/deleteAddress', addressController.deleteAddress);
     router.post('/editAddress', addressController.editAddress);
+    router.post('/getListOfAddressesById/:id', addressController.getListOfAddressesById);
 
     router.get('/getListPackageTypes', itemController.getListPackageTypes);
     router.get('/getListOfBookings', itemController.getListOfBookings);

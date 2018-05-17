@@ -5,6 +5,9 @@ import { IonicPage, NavController, NavParams, ToastController, PopoverController
 import { AstranService } from '../../providers/astran-service/astran-service';
 import { FormBuilder } from '@angular/forms';
 import { AstronPreloader } from '../../providers/astron-preloader/astron-preloader';
+import { Storage } from '@ionic/storage';
+import { AstronToast } from '../../providers/astraon-toast/astron-toast';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'page-view-address',
@@ -13,14 +16,17 @@ import { AstronPreloader } from '../../providers/astron-preloader/astron-preload
 export class ViewAddressPage {
 
   addresses: any[];
+  user: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
     private fb: FormBuilder,
-    private astranService: AstranService,  
+    private storage: Storage,
+    private astranService: AstranService,
     private popoverCtrl: PopoverController,
-    private astronPreloader: AstronPreloader) {
+    private astronPreloader: AstronPreloader,
+    private astronToast: AstronToast) {
   }
 
   ngOnInit() {
@@ -29,13 +35,22 @@ export class ViewAddressPage {
 
   getInitData() {
     this.astronPreloader.show();
-    this.astranService.getListOfAddresses().subscribe(data => {
+    this.storage.get('user').then((user) => {
       this.astronPreloader.hide();
-      console.log(JSON.parse(data));
-      this.addresses = JSON.parse(data);
-    }, error => {
-      console.log(error)
+      this.user = JSON.parse(user)[0];
+      if (!_.isEmpty(user)) {
+        console.log(user);
+        this.astranService.getListOfAddressesById(this.user.id).subscribe(data => {
+          console.log(JSON.parse(data));
+          this.addresses = JSON.parse(data);
+        }, error => {
+          this.astronToast.makeToast(error);
+        });
+      } else {
+        this.astronToast.makeToast("Something went wrong");
+      }
     });
+
   }
 
   addAddress() {

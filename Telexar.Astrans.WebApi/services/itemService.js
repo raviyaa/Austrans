@@ -22,6 +22,15 @@ function getListOfBookings(callback) {
 }
 
 
+function getListOfAddressesById(id, callback) {
+    connection.query('SELECT * from api_bookings WHERE id=? ', [id], function (error, results) {
+        if (error) {
+            callback(null, JSON.stringify(error));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
 
 module.exports = {
     getListPackageTypes: getListPackageTypes,

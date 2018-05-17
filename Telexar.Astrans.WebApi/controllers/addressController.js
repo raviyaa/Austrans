@@ -83,9 +83,26 @@ function editAddress(req, res) {
     });
 }
 
+function getListOfAddressesById(req, res) {
+    async.waterfall([
+        function (callback) {
+            addressService.getListOfAddressesById(req.params.id, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
+
 module.exports = {
     getListOfAddress: getListOfAddress,
     addAddress: addAddress,
     deleteAddress: deleteAddress,
-    editAddress: editAddress
+    editAddress: editAddress,
+    getListOfAddressesById:getListOfAddressesById
 };

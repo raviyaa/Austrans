@@ -34,6 +34,9 @@ function getListOfBookings(req, res) {
     });
 }
 
+
+
+
 module.exports = {
     getListPackageTypes: getListPackageTypes,
     getListOfBookings:getListOfBookings

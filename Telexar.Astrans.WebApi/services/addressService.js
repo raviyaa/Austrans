@@ -44,11 +44,22 @@ function editAddress(obj, callback) {
         }
     });
 }
+function getListOfAddressesById(id, callback) {
+    connection.query('SELECT * from address_books WHERE user_id=? ', [id], function (error, results) {
+        if (error) {
+            callback(null, JSON.stringify(error));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
+
 module.exports = {
     getListOfAddress: getListOfAddress,
     addAddress: addAddress,
     deleteAddress: deleteAddress,
-    editAddress: editAddress
+    editAddress: editAddress,
+    getListOfAddressesById:getListOfAddressesById
 };
 
 
