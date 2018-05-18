@@ -39,6 +39,10 @@ export class CreateItemPage {
       width: ['', Validators.required],
       height: ['', Validators.required],
       weight: ['', Validators.required],
+      lenMeasure: ['', Validators.required],
+      widMeasure: ['', Validators.required],
+      heiMeasure: ['', Validators.required],
+      weiMeasure: ['', Validators.required],
       volume: ['', Validators.required]
     });
   }

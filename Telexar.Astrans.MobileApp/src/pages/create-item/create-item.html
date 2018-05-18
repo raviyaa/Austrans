@@ -11,7 +11,9 @@
   <form [formGroup]="itemForm" (submit)="saveItems()">
     <ion-list formArrayName="items">
       <ion-card *ngFor="let item of itemForm.controls.items.controls; let i=index" [formGroupName]="i">
-
+          <ion-card-header>
+              {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.TITLE' | translate }}
+            </ion-card-header>
         <ion-item class="sign-form">
           <ion-label icon-left>
             <ion-icon name="archive"></ion-icon>{{ 'CONSIGNMENT.ITEM.CREATE_ITEM.TYPE' | translate }}
@@ -25,8 +27,15 @@
           <ion-label icon-left>
             <i class="fas fa-sort-numeric-down"></i>
           </ion-label>
-          <ion-input type="text" formControlName="qty" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.QTY' | translate }}"></ion-input>
-          <ion-select align="right" interface="popover" formControlName="type">
+          <ion-input type="number" formControlName="qty" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.QTY' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="ribbon"></ion-icon>
+          </ion-label>
+          <ion-input type="number" formControlName="length" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.LENGTH' | translate }}"></ion-input>
+          <ion-select align="right" interface="popover" formControlName="lenMeasure">
             <ion-option>cm</ion-option>
             <ion-option>inch</ion-option>
             <ion-option>feet</ion-option>
@@ -38,8 +47,8 @@
           <ion-label icon-left>
             <ion-icon name="ribbon"></ion-icon>
           </ion-label>
-          <ion-input type="text" formControlName="length" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.LENGTH' | translate }}"></ion-input>
-          <ion-select align="right" interface="popover" formControlName="type">
+          <ion-input type="number" formControlName="width" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.WIDTH' | translate }}"></ion-input>
+          <ion-select align="right" interface="popover" formControlName="widMeasure">
             <ion-option>cm</ion-option>
             <ion-option>inch</ion-option>
             <ion-option>feet</ion-option>
@@ -51,8 +60,8 @@
           <ion-label icon-left>
             <ion-icon name="ribbon"></ion-icon>
           </ion-label>
-          <ion-input type="text" formControlName="width" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.WIDTH' | translate }}"></ion-input>
-          <ion-select align="right" interface="popover" formControlName="type">
+          <ion-input type="number" formControlName="height" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.HEIGHT' | translate }}"></ion-input>
+          <ion-select align="right" interface="popover" formControlName="heiMeasure">
             <ion-option>cm</ion-option>
             <ion-option>inch</ion-option>
             <ion-option>feet</ion-option>
@@ -64,21 +73,8 @@
           <ion-label icon-left>
             <ion-icon name="ribbon"></ion-icon>
           </ion-label>
-          <ion-input type="text" formControlName="height" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.HEIGHT' | translate }}"></ion-input>
-          <ion-select align="right" interface="popover" formControlName="type">
-            <ion-option>cm</ion-option>
-            <ion-option>inch</ion-option>
-            <ion-option>feet</ion-option>
-            <ion-option>m</ion-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item class="sign-form">
-          <ion-label icon-left>
-            <ion-icon name="ribbon"></ion-icon>
-          </ion-label>
-          <ion-input type="text" formControlName="weight" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.WEIGHT' | translate }}"></ion-input>
-          <ion-select align="right" interface="popover">
+          <ion-input type="number" formControlName="weight" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.WEIGHT' | translate }}"></ion-input>
+          <ion-select align="right" interface="popover" formControlName="weiMeasure">
             <ion-option>g</ion-option>
             <ion-option>kg</ion-option>
             <ion-option>oz</ion-option>
@@ -90,7 +86,7 @@
           <ion-label icon-left>
             <ion-icon name="ribbon"></ion-icon>
           </ion-label>
-          <ion-input type="text" formControlName="volume" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.VOL' | translate }}"></ion-input>
+          <ion-input type="number" formControlName="volume" placeholder=" {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.VOL' | translate }}"></ion-input>
         </ion-item>
 
         <ion-item>

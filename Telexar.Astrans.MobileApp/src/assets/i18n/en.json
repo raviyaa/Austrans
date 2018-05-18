@@ -47,6 +47,7 @@
     "ITEM": {
       "TITLE": "Item",
       "CREATE_ITEM": {
+        "TITLE":"What Items Are You Shipping?",
         "TYPE": "Packaging Type",
         "QTY": "Qty",
         "LENGTH": "Length",
