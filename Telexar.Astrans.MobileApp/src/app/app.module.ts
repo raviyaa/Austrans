@@ -1,3 +1,4 @@
+import { CreatePaymentPage } from './../pages/create-payment/create-payment';
 import { PaymentDashboardPage } from './../pages/payment-dashboard/payment-dashboard';
 import { InvoicePage } from './../pages/invoice/invoice';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -53,7 +54,8 @@ export function provideSettings(storage: Storage) {
     FinanceDashboardPage,
     InvoicePage,
     PaymentDashboardPage,
-    UserProfilePage
+    UserProfilePage,
+    CreatePaymentPage
   ],
   imports: [
     FormsModule,
@@ -85,7 +87,8 @@ export function provideSettings(storage: Storage) {
     FinanceDashboardPage,
     InvoicePage,
     PaymentDashboardPage,
-    UserProfilePage
+    UserProfilePage,
+    CreatePaymentPage
   ],
   providers: [
     Camera,

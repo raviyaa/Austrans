@@ -1,3 +1,4 @@
+import { CreatePaymentPage } from './../create-payment/create-payment';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,7 +14,7 @@ export class PaymentDashboardPage {
   ) {
   }
   payPalClicked() {
-
+    this.navCtrl.push(CreatePaymentPage);
   }
   stripeClicked() {
 

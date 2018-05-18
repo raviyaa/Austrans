@@ -31,6 +31,8 @@ module.exports = function () {
     router.post('/getListOfBookingsById/:id', itemController.getListOfBookingsById);
 
     router.get('/getListOfInvoices', financeController.getListOfInvoice);
+    router.post('/getListInvoicesById/:id', financeController.getListInvoicesById);
+
     return router;
 };
 

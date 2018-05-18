@@ -19,6 +19,22 @@ function getListOfInvoice(req, res) {
     });
 }
 
+function getListInvoicesById(req, res) {
+    async.waterfall([
+        function (callback) {
+            financeService.getListInvoicesById(req.params.id, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
 module.exports = {
-    getListOfInvoice: getListOfInvoice
+    getListOfInvoice: getListOfInvoice,
+    getListInvoicesById:getListInvoicesById
 };

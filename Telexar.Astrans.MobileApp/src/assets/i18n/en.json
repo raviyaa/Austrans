@@ -47,7 +47,7 @@
     "ITEM": {
       "TITLE": "Item",
       "CREATE_ITEM": {
-        "TITLE":"What Items Are You Shipping?",
+        "TITLE": "What Items Are You Shipping?",
         "TYPE": "Packaging Type",
         "QTY": "Qty",
         "LENGTH": "Length",
@@ -129,7 +129,20 @@
   "PAYMENT_DASHBOARD": {
     "TITLE": "Payment Methods",
     "BTN_PAYPAL": "Paypal",
-    "BTN_STRIPE": "Stripe"
+    "BTN_STRIPE": "Stripe",
+    "CREATE_PAYMENT": {
+      "TITLE":"Payment",
+      "COMPANY_DETAIL":"ENTER YOUR DETAILS ",
+      "COMPANY_NAME":"Company Name",
+      "ACCOUNT_NO":"Account No",
+      "INVOICE_NO":"Invoice No",
+      "ADDRESS":"Billing Address",
+      "CONTACT_NAME":"Contact Name",
+      "PHONE":"Phone",
+      "AMOUNT":"Amount (2 % processing fees extra)",
+      "OUT_AMOUNT":"Outstanding Amount (2 % processing fees extra)",
+      "BTN_PAY":"Pay Now"
+    }
   },
   "FINANCE_DASHBOARD": {
     "TITLE": "Finance",
@@ -154,8 +167,8 @@
       "PIN_CODE": "PIN Code",
       "SELEC_TYPE": "Select Type",
       "BTN_SAVE": "Update",
-      "COMANY":{
-        "TITLE":"Company Detail",
+      "COMANY": {
+        "TITLE": "Company Detail",
         "COMPANY_NAME": "Company Name",
         "LOCATION": "Location",
         "PIN_CODE": "PIN Code"
