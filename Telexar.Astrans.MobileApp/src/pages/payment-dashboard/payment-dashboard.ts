@@ -14,9 +14,16 @@ export class PaymentDashboardPage {
   ) {
   }
   payPalClicked() {
-    this.navCtrl.push(CreatePaymentPage);
+    var data = {
+      isFromPaypal: true
+    };
+    this.navCtrl.push(CreatePaymentPage, data);
   }
+  
   stripeClicked() {
-
+    var data = {
+      isFromPaypal: false
+    };
+    this.navCtrl.push(CreatePaymentPage, data);
   }
 }

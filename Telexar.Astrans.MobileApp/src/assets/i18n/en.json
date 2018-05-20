@@ -141,6 +141,10 @@
       "PHONE":"Phone",
       "AMOUNT":"Amount (2 % processing fees extra)",
       "OUT_AMOUNT":"Outstanding Amount (2 % processing fees extra)",
+      "CARD_NO":"Card No",
+      "EXP":"Expiry Month",
+      "YEAR":"Year",
+      "CVC":"CVC Code",
       "BTN_PAY":"Pay Now"
     }
   },

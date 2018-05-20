@@ -28,7 +28,7 @@
         <ion-item>
           <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.INVOICE_NO' | translate }}</ion-label>
           <ion-select interface="popover" formControlName="invoiceNo" style="text-align: left">
-            <ion-option (ionSelect)="selectItem($event, invoice)" *ngFor="let invoice of invoices" [value]="invoice.id" >{{invoice.invoice_number}}</ion-option>
+            <ion-option (ionSelect)="selectItem($event, invoice)" *ngFor="let invoice of invoices" [value]="invoice.id">{{invoice.invoice_number}}</ion-option>
           </ion-select>
         </ion-item>
 
@@ -56,6 +56,34 @@
           <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.OUT_AMOUNT' | translate }}</ion-label>
           <ion-input type="number" formControlName="outAmount"></ion-input>
         </ion-item>
+
+        <ion-item [hidden]="isFromPaypal">
+          <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.CARD_NO' | translate }}</ion-label>
+          <ion-input type="number" formControlName="cardNo"></ion-input>
+        </ion-item>
+
+        <ion-grid [hidden]="isFromPaypal">
+          <ion-row>
+            <ion-col col-4>
+              <ion-item>
+                <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.EXP' | translate }}</ion-label>
+                <ion-input type="text" formControlName="expMonth"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.YEAR' | translate }}</ion-label>
+                <ion-input type="text" formControlName="expYear"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-4>
+              <ion-item>
+                <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.CVC' | translate }}</ion-label>
+                <ion-input type="text" formControlName="cvc"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
         <div padding class="login-btn">
           <button ion-button color="primary" [disabled]='!createPaymentForm.valid' block>{{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.BTN_PAY' | translate }}</button>

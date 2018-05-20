@@ -17,6 +17,7 @@ export class CreatePaymentPage {
   createPaymentForm: FormGroup;
   user: any;
   invoices: any;
+  isFromPaypal: boolean;
 
   constructor(
     public navCtrl: NavController,
@@ -27,6 +28,9 @@ export class CreatePaymentPage {
     private astronPreloader: AstronPreloader,
     private astronToast: AstronToast
   ) {
+    if (!_.isEmpty(this.navParams.data)) {
+      this.isFromPaypal = this.navParams.data.isFromPaypal
+    }
   }
 
   ngOnInit() {
@@ -38,13 +42,15 @@ export class CreatePaymentPage {
       phone: ['', Validators.required],
       amount: ['', Validators.required],
       outAmount: ['', Validators.required],
-      invoiceNo: ['', Validators.required]
+      invoiceNo: ['', Validators.required],
+      cardNo: ['', Validators.required],
+      expMonth: ['', Validators.required],
+      expYear: ['', Validators.required],
+      cvc: ['', Validators.required]
     });
     this.getUserData();
   }
-  savePayment() {
 
-  }
   getUserData() {
     this.astronPreloader.show();
     this.storage.get('user').then((user) => {
@@ -95,5 +101,9 @@ export class CreatePaymentPage {
       amount: invoice.total_price,
       outAmount: invoice.outstanding_price
     });
+  }
+
+  savePayment() {
+
   }
 }
