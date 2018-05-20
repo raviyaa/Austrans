@@ -27,8 +27,8 @@
 
         <ion-item>
           <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.INVOICE_NO' | translate }}</ion-label>
-          <ion-select interface="popover" formControlName="invoiceNo" style="text-align: left" (ionChange)="invoiceSelected(invoice)" >
-            <ion-option *ngFor="let invoice of invoices" [value]="invoice.id" >{{invoice.invoice_number}}</ion-option>
+          <ion-select interface="popover" formControlName="invoiceNo" style="text-align: left">
+            <ion-option (ionSelect)="selectItem($event, invoice)" *ngFor="let invoice of invoices" [value]="invoice.id" >{{invoice.invoice_number}}</ion-option>
           </ion-select>
         </ion-item>
 
@@ -58,7 +58,7 @@
         </ion-item>
 
         <div padding class="login-btn">
-          <button ion-button color="primary" [disabled]='!createPaymentForm.valid' block>{{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.BTN_SAVE' | translate }}</button>
+          <button ion-button color="primary" [disabled]='!createPaymentForm.valid' block>{{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.BTN_PAY' | translate }}</button>
         </div>
 
       </ion-list>

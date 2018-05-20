@@ -82,7 +82,18 @@ export class CreatePaymentPage {
     });
   }
 
-  invoiceSelected(data) {
-    console.log(data);
+  selectItem($event, invoice) {
+    if (!_.isEmpty(invoice)) {
+      this.onSelectedInvoiceReceived(invoice);
+    } else {
+      this.astronToast.makeToast("Something went wrong");
+    }
+  }
+
+  onSelectedInvoiceReceived(invoice) {
+    this.createPaymentForm.patchValue({
+      amount: invoice.total_price,
+      outAmount: invoice.outstanding_price
+    });
   }
 }
