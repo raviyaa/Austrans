@@ -1,3 +1,4 @@
+import { AstronToast } from './../../providers/astraon-toast/astron-toast';
 import { PickupAddressPage } from './../pickup-address/pickup-address';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -20,7 +21,8 @@ export class CreateItemPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private astranService: AstranService,
-    private astronPreloader: AstronPreloader) {
+    private astronPreloader: AstronPreloader,
+    private astronToast: AstronToast) {
   }
 
   ngOnInit() {
@@ -58,6 +60,13 @@ export class CreateItemPage {
   addItem() {
     const control = <FormArray>this.itemForm.controls['items'];
     control.push(this.initItems());
+/*     if (this.itemForm.valid) {
+      const control = <FormArray>this.itemForm.controls['items'];
+      control.push(this.initItems());
+    } else {
+      this.astronToast.makeToast('Please fill the rre');
+    } */
+
   }
   getListPackageTypes() {
     this.astranService.getListPackageTypes().subscribe(data => {
@@ -68,7 +77,7 @@ export class CreateItemPage {
       console.log(error)
     });
   }
-  saveItems(){
+  saveItems() {
     console.log(this.itemForm.value);
     this.navCtrl.push(PickupAddressPage);
   }

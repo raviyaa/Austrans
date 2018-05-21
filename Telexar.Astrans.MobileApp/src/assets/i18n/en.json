@@ -100,7 +100,10 @@
       "COUNTRY":"Country",
       "PICKUP_INSC":"Pickup Instruction",
       "SELEC_TYPE": "Select Type",
-      "BTN_NEXT":"Next"
+      "BTN_NEXT":"Next",
+      "RECENT":"Recently used locations",
+      "CHECK_BOX":"Save this address for later user",
+      "BTN_CHANGE":"Enter a new location "
     }
   },
   "BOOKING_OVERVIEW": {
