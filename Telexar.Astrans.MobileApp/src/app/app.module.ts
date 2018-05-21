@@ -32,7 +32,6 @@ import { DeliveryAddressPage } from '../pages/delivery-address/delivery-address'
 import { GenerateQuotePage } from '../pages/generate-quote/generate-quote';
 import { PickupAddressPage } from '../pages/pickup-address/pickup-address';
 
-
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

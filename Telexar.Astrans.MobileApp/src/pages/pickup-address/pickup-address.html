@@ -1,12 +1,87 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>{{ 'DASHBOARD.TITLE' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-  </ion-content>
-  
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'CONSIGNMENT.PICKUP.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="pickUpAddressForm" (submit)="savePickUpAddress()">
+    <ion-card>
+      <ion-card-header>
+        {{ 'CONSIGNMENT.PICKUP.CARD_TITLE' | translate }}
+      </ion-card-header>
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.FIRST_NAME' | translate }}</ion-label>
+          <ion-input type="text" formControlName="firstName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.LAST_NAME' | translate }}</ion-label>
+          <ion-input type="text" formControlName="lastName"></ion-input>
+        </ion-item>
+
+        <!--       <ion-item>
+          <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.INVOICE_NO' | translate }}</ion-label>
+          <ion-select interface="popover" formControlName="invoiceNo" style="text-align: left">
+            <ion-option (ionSelect)="selectItem($event, invoice)" *ngFor="let invoice of invoices" [value]="invoice.id">{{invoice.invoice_number}}</ion-option>
+          </ion-select>
+        </ion-item> -->
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.COMPANY_NAME' | translate }}</ion-label>
+          <ion-input type="text" formControlName="companyName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.EMAIL' | translate }}</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.PHONE' | translate }}</ion-label>
+          <ion-input type="phone" formControlName="phone"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.ADDRESS' | translate }}</ion-label>
+          <ion-input type="text" formControlName="address"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.SUBURB' | translate }}</ion-label>
+          <ion-input type="text" formControlName="suburb"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.STATE' | translate }}</ion-label>
+          <ion-input type="text" formControlName="state"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.PIN_CODE' | translate }}</ion-label>
+          <ion-input type="text" formControlName="postalCode"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.COUNTRY' | translate }}</ion-label>
+          <ion-input type="text" formControlName="country"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.PICKUP_INSC' | translate }}</ion-label>
+          <ion-input type="text" formControlName="pickupIns"></ion-input>
+        </ion-item>
+
+        <div padding class="login-btn">
+          <button ion-button color="primary" [disabled]='!pickUpAddressForm.valid' block>{{ 'CONSIGNMENT.PICKUP.BTN_NEXT' | translate }}</button>
+        </div>
+
+      </ion-list>
+    </ion-card>
+  </form>
+</ion-content>
