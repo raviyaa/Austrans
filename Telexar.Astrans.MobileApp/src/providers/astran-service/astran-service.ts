@@ -83,6 +83,12 @@ export class AstranService {
             .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
     }
 
+    getListOfRecentAddressesById(id) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getListOfRecentAddressesById/' + id, HttpConfig.requestOptions())
+            .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
+    }
+
+
     _errorhandler(error: Response) {
         console.error(error);
         return Observable.throw(error || 'Server Error')

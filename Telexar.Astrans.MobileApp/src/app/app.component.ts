@@ -71,7 +71,6 @@ export class MyApp {
   }
   
   openPage(page) {
-    console.log(page)
     if (page.component) {
       this.nav.setRoot(page.component);
     } else {

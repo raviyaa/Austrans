@@ -1,3 +1,4 @@
+import { PickupAddressPage } from './../pickup-address/pickup-address';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
@@ -69,5 +70,6 @@ export class CreateItemPage {
   }
   saveItems(){
     console.log(this.itemForm.value);
+    this.navCtrl.push(PickupAddressPage);
   }
 }

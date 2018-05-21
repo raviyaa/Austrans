@@ -98,11 +98,28 @@ function getListOfAddressesById(req, res) {
     });
 }
 
+function getListOfRecentAddressesById(req, res) {
+    async.waterfall([
+        function (callback) {
+            addressService.getListOfRecentAddressesById(req.params.id, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
+
+
 
 module.exports = {
     getListOfAddress: getListOfAddress,
     addAddress: addAddress,
     deleteAddress: deleteAddress,
     editAddress: editAddress,
-    getListOfAddressesById:getListOfAddressesById
+    getListOfAddressesById: getListOfAddressesById,
+    getListOfRecentAddressesById: getListOfRecentAddressesById
 };
