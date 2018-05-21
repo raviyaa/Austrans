@@ -1,4 +1,3 @@
-import { CreateItemPage } from './../pages/create-item/create-item';
 import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { FinanceDashboardPage } from './../pages/finance-dashboard/finance-dashboard';
 import { ViewAddressPage } from './../pages/view-address/view-address';
@@ -16,7 +15,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = CreateItemPage;
+  rootPage = LoginPage;
   pages: Array<{ title: string, component: any }>;
   @ViewChild(Nav) nav: Nav;
   constructor(
