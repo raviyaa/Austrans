@@ -28,6 +28,9 @@ import { ViewBookingPage } from '../pages/view-booking/view-booking';
 import { FinanceDashboardPage } from '../pages/finance-dashboard/finance-dashboard';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
 import { AstronToast } from '../providers/astraon-toast/astron-toast';
+import { DeliveryAddressPage } from '../pages/delivery-address/delivery-address';
+import { GenerateQuotePage } from '../pages/generate-quote/generate-quote';
+import { PickupAddressPage } from '../pages/pickup-address/pickup-address';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -55,7 +58,10 @@ export function provideSettings(storage: Storage) {
     InvoicePage,
     PaymentDashboardPage,
     UserProfilePage,
-    CreatePaymentPage
+    CreatePaymentPage,
+    DeliveryAddressPage,
+    GenerateQuotePage,
+    PickupAddressPage
   ],
   imports: [
     FormsModule,
@@ -88,7 +94,10 @@ export function provideSettings(storage: Storage) {
     InvoicePage,
     PaymentDashboardPage,
     UserProfilePage,
-    CreatePaymentPage
+    CreatePaymentPage,
+    DeliveryAddressPage,
+    GenerateQuotePage,
+    PickupAddressPage
   ],
   providers: [
     Camera,
