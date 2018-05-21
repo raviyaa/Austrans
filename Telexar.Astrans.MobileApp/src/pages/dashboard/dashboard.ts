@@ -14,6 +14,11 @@ export class DashboardPage {
   ) {
   }
 
+  gh() {
+    console.log('gh');
+  }
 
-
+  ghi() {
+    console.log('ghq');
+  }
 }
