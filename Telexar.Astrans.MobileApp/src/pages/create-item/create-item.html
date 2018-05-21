@@ -17,14 +17,14 @@
 
         <ion-grid>
           <ion-row>
-            <ion-col col-5>
+            <ion-col col-6>
               <ion-item>
                 <ion-label icon-left>
                   <ion-icon name="archive"></ion-icon>{{ 'CONSIGNMENT.ITEM.CREATE_ITEM.TYPE' | translate }}
                 </ion-label>
               </ion-item>
             </ion-col>
-            <ion-col col-7>
+            <ion-col col-6>
               <ion-select interface="popover" formControlName="type">
                 <ion-option *ngFor="let package of packages" [value]="package.id">{{package.package_name}}</ion-option>
               </ion-select>
@@ -32,24 +32,24 @@
           </ion-row>
 
           <ion-row>
-            <ion-col col-5>
+            <ion-col col-6>
               <ion-item>
                 <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.QTY' | translate }}</ion-label>
                 <ion-input type="number" formControlName="qty"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-7>
+            <ion-col col-6>
             </ion-col>
           </ion-row>
 
           <ion-row>
-            <ion-col col-5>
+            <ion-col col-6>
               <ion-item>
                 <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.LENGTH' | translate }}</ion-label>
                 <ion-input type="number" formControlName="length"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-7>
+            <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="lenMeasure">
                   <ion-option>cm</ion-option>
@@ -62,13 +62,13 @@
           </ion-row>
 
           <ion-row>
-            <ion-col col-5>
+            <ion-col col-6>
               <ion-item>
                 <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.WIDTH' | translate }}</ion-label>
                 <ion-input type="number" formControlName="width"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-7>
+            <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="widMeasure">
                   <ion-option>cm</ion-option>
@@ -81,13 +81,13 @@
           </ion-row>
 
           <ion-row>
-            <ion-col col-5>
+            <ion-col col-6>
               <ion-item>
                 <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.HEIGHT' | translate }}</ion-label>
                 <ion-input type="number" formControlName="height"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-7>
+            <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="heiMeasure">
                   <ion-option>cm</ion-option>
@@ -100,13 +100,13 @@
           </ion-row>
 
           <ion-row>
-            <ion-col col-5>
+            <ion-col col-6>
               <ion-item>
                 <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.WEIGHT' | translate }}</ion-label>
                 <ion-input type="number" formControlName="weight"></ion-input>
               </ion-item>
             </ion-col>
-            <ion-col col-7>
+            <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="weiMeasure">
                   <ion-option>g</ion-option>

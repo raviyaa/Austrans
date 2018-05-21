@@ -69,8 +69,9 @@ export class MyApp {
         this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
       }); */
   }
-
+  
   openPage(page) {
+    console.log(page)
     if (page.component) {
       this.nav.setRoot(page.component);
     } else {

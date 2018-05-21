@@ -73,4 +73,16 @@ page-create-item {
         color: #fff;
         background-color: rgb(33, 34, 94);
     }
+    .text-input::-moz-placeholder {
+        color: black !important;
+      }
+      
+      .text-input:-ms-input-placeholder {
+        color: black !important;
+      }
+      
+      .text-input::-webkit-input-placeholder {
+        text-indent: 0;
+        color: black !important;
+      }
 }
