@@ -16,7 +16,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = LoginPage;
+  rootPage = CreateItemPage;
   pages: Array<{ title: string, component: any }>;
   @ViewChild(Nav) nav: Nav;
   constructor(
