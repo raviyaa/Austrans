@@ -1,4 +1,3 @@
-import { GenerateQuotePage } from './../pages/generate-quote/generate-quote';
 import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { FinanceDashboardPage } from './../pages/finance-dashboard/finance-dashboard';
 import { ViewAddressPage } from './../pages/view-address/view-address';
@@ -16,7 +15,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = GenerateQuotePage;
+  rootPage = LoginPage;
   pages: Array<{ title: string, component: any }>;
   @ViewChild(Nav) nav: Nav;
   constructor(

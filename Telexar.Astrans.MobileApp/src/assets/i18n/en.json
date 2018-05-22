@@ -230,7 +230,9 @@
   "GEN_QUOTES": {
     "TITLE": "Generate Quotes",
     "SENDER_REFERENCE": "Sender Reference",
-    "SPECIAL_INS": "Special Instruction"
+    "SPECIAL_INS": "Special Instruction",
+    "CHECK_BOX": "I understand quoting is directly affected by incorrect information and have provided accurate details",
+    "BTN_QUOTES":"Generate Quotes"
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",

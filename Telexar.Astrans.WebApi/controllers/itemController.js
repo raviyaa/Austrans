@@ -52,6 +52,7 @@ function getListOfBookingsById(req, res) {
 function addBooking(req, res) {
     async.waterfall([
         function (callback) {
+            console.log(req.body);
             itemService.addBooking(req.body, function (err, result) {
                 if (err) {
                     callback(null, err);

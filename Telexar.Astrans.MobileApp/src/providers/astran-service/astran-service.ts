@@ -88,6 +88,10 @@ export class AstranService {
             .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
     }
 
+    addBooking(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'addBooking', data, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
 
     _errorhandler(error: Response) {
         console.error(error);

@@ -55,6 +55,8 @@ export class PickupAddressPage {
 
   savePickUpAddress() {
     if (!this.isSaveAddressChecked) {
+      this.consObj.user_id = this.user.id;
+
       this.consObj.pickup_f_name = this.pickUpAddressForm.value.fName;
       this.consObj.pickup_l_name = this.pickUpAddressForm.value.lName;
       this.consObj.pickup_company_name = this.pickUpAddressForm.value.companyName;
@@ -64,7 +66,6 @@ export class PickupAddressPage {
       this.consObj.pickup_suburb = this.pickUpAddressForm.value.suburb;
       this.consObj.pickup_state = this.pickUpAddressForm.value.state;
       this.consObj.pickup_postcode = this.pickUpAddressForm.value.pin;
-      this.consObj.pickup_instruction = this.pickUpAddressForm.value.pickupIns;
 
       this.navCtrl.push(DeliveryAddressPage, this.consObj);
     }

@@ -23,17 +23,42 @@
       </ion-card>
 
       <ion-card>
-          <ion-card-header>
-            {{ 'GEN_QUOTES.SPECIAL_INS' | translate }}
-          </ion-card-header>
-  
-          <ion-item>
-            <ion-label floating> {{ 'GEN_QUOTES.v' | translate }}</ion-label>
-            <ion-textarea formControlName="instructions"></ion-textarea>
-          </ion-item>
-        </ion-card>
+        <ion-card-header>
+          {{ 'GEN_QUOTES.SPECIAL_INS' | translate }}
+        </ion-card-header>
 
+        <ion-item>
+          <ion-label floating> {{ 'GEN_QUOTES.SPECIAL_INS' | translate }}</ion-label>
+          <ion-textarea formControlName="instructions"></ion-textarea>
+        </ion-item>
+      </ion-card>
 
+      <ion-card>
+        <ion-card-header>
+          {{ 'GEN_QUOTES.SPECIAL_INS' | translate }}
+        </ion-card-header>
+
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime formControlName="date" displayFormat="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Time</ion-label>
+          <ion-datetime formControlName="time"  displayFormat=" HH:mm:ss"></ion-datetime>
+        </ion-item>
+      </ion-card>
+
+      <ion-card>
+        <ion-item>
+          <ion-label>{{ 'GEN_QUOTES.CHECK_BOX' | translate }}</ion-label>
+          <ion-checkbox (ionChange)="checkBoxClicked($event)"></ion-checkbox>
+        </ion-item>
+
+        <div padding class="login-btn">
+          <button ion-button color="primary" [disabled]='!generateQuoteForm.valid && !isSaveAddressChecked' block>{{ 'GEN_QUOTES.BTN_QUOTES' | translate }}</button>
+        </div>
+      </ion-card>
     </ion-list>
   </form>
 </ion-content>

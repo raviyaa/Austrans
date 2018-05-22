@@ -1,3 +1,4 @@
+import { GenerateQuotePage } from './../generate-quote/generate-quote';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -54,10 +55,10 @@ export class DeliveryAddressPage {
       this.consObj.delivery_suburb = this.deliveryAddressForm.value.suburb;
       this.consObj.delivery_state = this.deliveryAddressForm.value.state;
       this.consObj.delivery_postcode = this.deliveryAddressForm.value.pin;
-      this.consObj.delivery_instruction = this.deliveryAddressForm.value.pickupIns;
+     // this.consObj.delivery_instruction = this.deliveryAddressForm.value.pickupIns;
 
 
-      console.log(this.consObj);
+      this.navCtrl.push(GenerateQuotePage, this.consObj);
     }
   }
 

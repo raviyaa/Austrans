@@ -46,7 +46,9 @@ function addBooking(obj, callback) {
     connection.query('INSERT INTO api_bookings SET ?', obj, function (err, results) {
         if (err) {
             callback(null, JSON.stringify(err));
+            console.log(JSON.stringify(err));
         } else {
+            console.log(JSON.stringify(results));
             callback(null, JSON.stringify(results));
         }
     });
