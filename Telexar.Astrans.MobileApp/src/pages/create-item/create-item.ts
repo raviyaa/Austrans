@@ -16,6 +16,12 @@ export class CreateItemPage {
   packages: any;
   itemForm: FormGroup;
 
+  measurements = [
+    { name: 'cm' },
+    { name: 'inch' },
+    { name: 'feet' },
+    { name: 'm' }
+  ];
   constructor(
     private fb: FormBuilder,
     public navCtrl: NavController,
@@ -57,17 +63,12 @@ export class CreateItemPage {
     const control = <FormArray>this.itemForm.controls['items'];
     control.removeAt(i);
   }
+
   addItem() {
     const control = <FormArray>this.itemForm.controls['items'];
     control.push(this.initItems());
-/*     if (this.itemForm.valid) {
-      const control = <FormArray>this.itemForm.controls['items'];
-      control.push(this.initItems());
-    } else {
-      this.astronToast.makeToast('Please fill the rre');
-    } */
-
   }
+
   getListPackageTypes() {
     this.astranService.getListPackageTypes().subscribe(data => {
       if (!_.isEmpty(data)) {
@@ -77,8 +78,66 @@ export class CreateItemPage {
       console.log(error)
     });
   }
+
   saveItems() {
-    console.log(this.itemForm.value);
-    this.navCtrl.push(PickupAddressPage);
+    var conObj = {
+      package_type: null,
+      length: null,
+      width: null,
+      height: null,
+      lwh_measurement: null,
+      weight: null,
+      weight_measurement: null,
+      volume: null,
+      total_volume: 0,
+      total_weight: 0
+    };
+
+    var package_type = [];
+    var length = [];
+    var width = [];
+    var height = [];
+    var lwh_measurement = [];
+    var weight = [];
+    var weight_measurement = [];
+    var volume = [];
+
+    var total_volume = 0;
+    var total_weight = 0;
+
+    _.each(this.itemForm.value.items, function (item, key) {
+      package_type.push(item.type);
+      length.push(item.length);
+      width.push(item.width);
+      height.push(item.height);
+      lwh_measurement.push(item.lenMeasure);
+      weight.push(item.weight);
+      weight_measurement.push(item.weiMeasure);
+      volume.push(item.volume);
+      total_volume += item.volume * item.qty;
+      total_weight += item.weight * item.qty;
+    });
+
+    conObj.package_type = package_type;
+    conObj.length = length;
+    conObj.width = width;
+    conObj.height = height;
+    conObj.lwh_measurement = lwh_measurement;
+    conObj.weight = weight;
+    conObj.weight_measurement = weight_measurement;
+    conObj.volume = volume;
+    conObj.total_volume = total_volume;
+    conObj.total_weight = total_weight;
+
+    this.navCtrl.push(PickupAddressPage, conObj);
   }
+
+  selectItem(event, measure) {
+    this.itemForm.patchValue({
+      widMeasure: measure.name,
+      heiMeasure: measure.name
+    });
+
+  }
+
 }

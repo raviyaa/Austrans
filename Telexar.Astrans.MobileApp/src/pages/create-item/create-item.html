@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="itemForm" (submit)="saveItems()">
+  <form [formGroup]="itemForm">
     <ion-list formArrayName="items">
       <ion-card *ngFor="let item of itemForm.controls.items.controls; let i=index" [formGroupName]="i">
         <ion-card-header>
@@ -26,7 +26,7 @@
             </ion-col>
             <ion-col col-6>
               <ion-select interface="popover" formControlName="type">
-                <ion-option *ngFor="let package of packages" [value]="package.id">{{package.package_name}}</ion-option>
+                <ion-option *ngFor="let package of packages" [value]="package.name">{{package.package_name}}</ion-option>
               </ion-select>
             </ion-col>
           </ion-row>
@@ -52,10 +52,7 @@
             <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="lenMeasure">
-                  <ion-option>cm</ion-option>
-                  <ion-option>inch</ion-option>
-                  <ion-option>feet</ion-option>
-                  <ion-option>m</ion-option>
+                  <ion-option (ionSelect)="selectItem($event, measure)" *ngFor="let measure of measurements" [value]="measure.name">{{measure.name}}</ion-option>
                 </ion-select>
               </ion-item>
             </ion-col>
@@ -71,10 +68,7 @@
             <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="widMeasure">
-                  <ion-option>cm</ion-option>
-                  <ion-option>inch</ion-option>
-                  <ion-option>feet</ion-option>
-                  <ion-option>m</ion-option>
+                  <ion-option *ngFor="let measure of measurements" [value]="measure.name">{{measure.name}}</ion-option>
                 </ion-select>
               </ion-item>
             </ion-col>
@@ -90,10 +84,7 @@
             <ion-col col-6>
               <ion-item>
                 <ion-select align="right" interface="popover" formControlName="heiMeasure">
-                  <ion-option>cm</ion-option>
-                  <ion-option>inch</ion-option>
-                  <ion-option>feet</ion-option>
-                  <ion-option>m</ion-option>
+                  <ion-option  *ngFor="let measure of measurements" [value]="measure.name">{{measure.name}}</ion-option>
                 </ion-select>
               </ion-item>
             </ion-col>
@@ -119,38 +110,38 @@
           </ion-row>
 
           <ion-row>
-              <ion-col col-5>
-                <ion-item>
-                  <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.VOL' | translate }}</ion-label>
-                  <ion-input type="number" formControlName="volume"></ion-input>
-                </ion-item>
-              </ion-col>
-              <ion-col col-7>
-                <ion-item>
-        
-                </ion-item>
-              </ion-col>
-            </ion-row>
+            <ion-col col-5>
+              <ion-item>
+                <ion-label floating> {{ 'CONSIGNMENT.ITEM.CREATE_ITEM.VOL' | translate }}</ion-label>
+                <ion-input type="number" formControlName="volume"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-7>
+              <ion-item>
+
+              </ion-item>
+            </ion-col>
+          </ion-row>
 
         </ion-grid>
 
-         <ion-item>
+        <ion-item>
           <button class="remove-item" type="button" (click)="removeState(i, item)" *ngIf="itemForm.controls.items.controls.length>1">
             <i class="fas fa-minus-circle"></i>
           </button>
         </ion-item>
 
-
-
       </ion-card>
-      <div class="add-item-wrapper">
-        <button class="add-item" ion-button icon-start (click)="addItem()">
-          <ion-icon name="add-circle"></ion-icon>
-        </button>
-      </div>
     </ion-list>
-    <div padding class="login-btn">
-      <button ion-button color="primary" block [disabled]='!itemForm.valid'>Save</button>
-    </div>
   </form>
+  <div class="add-item-wrapper">
+    <button class="add-item" ion-button icon-start (click)="addItem()">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+  </div>
+
+  <div padding class="login-btn">
+    <button ion-button color="primary" block [disabled]='!itemForm.valid' (click)="saveItems()">Save</button>
+  </div>
+
 </ion-content>
