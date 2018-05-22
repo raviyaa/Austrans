@@ -1,3 +1,4 @@
+import { DeliveryAddressPage } from './../delivery-address/delivery-address';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AstranService } from '../../providers/astran-service/astran-service';
@@ -19,6 +20,7 @@ export class PickupAddressPage {
   recentAddresses: any;
   isNewAddressClicked: boolean = false;
   isSaveAddressChecked: boolean = false;
+  consObj: any;
 
   constructor(
     public navCtrl: NavController,
@@ -29,27 +31,43 @@ export class PickupAddressPage {
     private astronToast: AstronToast,
     private storage: Storage
   ) {
+    if (!_.isEmpty(this.navParams.data)) {
+      this.consObj = this.navParams.data;
+    }
   }
 
   ngOnInit() {
     this.pickUpAddressForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      fName: ['', Validators.required],
+      lName: ['', Validators.required],
       companyName: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
       address: ['', Validators.required],
       suburb: ['', Validators.required],
       state: ['', Validators.required],
-      postalCode: ['', Validators.required],
+      pin: ['', Validators.required],
       country: ['', Validators.required],
-      pickupIns: ['', Validators.required]
+      pickupIns: ['',]
     });
     this.getUserDataOnInit();
   }
 
   savePickUpAddress() {
+    if (!this.isSaveAddressChecked) {
+      this.consObj.pickup_f_name = this.pickUpAddressForm.value.fName;
+      this.consObj.pickup_l_name = this.pickUpAddressForm.value.lName;
+      this.consObj.pickup_company_name = this.pickUpAddressForm.value.companyName;
+      this.consObj.pickup_email = this.pickUpAddressForm.value.email;
+      this.consObj.pickup_phone = this.pickUpAddressForm.value.phone;
+      this.consObj.pickup_address = this.pickUpAddressForm.value.address;
+      this.consObj.pickup_suburb = this.pickUpAddressForm.value.suburb;
+      this.consObj.pickup_state = this.pickUpAddressForm.value.state;
+      this.consObj.pickup_postcode = this.pickUpAddressForm.value.pin;
+      this.consObj.pickup_instruction = this.pickUpAddressForm.value.pickupIns;
 
+      this.navCtrl.push(DeliveryAddressPage, this.consObj);
+    }
   }
 
   addNewAddressClicked() {
@@ -74,12 +92,12 @@ export class PickupAddressPage {
   onUserReceived(user) {
     this.pickUpAddressForm.patchValue({
       companyName: this.user.company_name,
-      firstName: this.user.first_name,
-      lastName: this.user.last_name,
+      fName: this.user.first_name,
+      lName: this.user.last_name,
       address: this.user.address1,
       email: this.user.email,
       phone: this.user.phone,
-      postalCode: this.user.postal_code,
+      pinS: this.user.postal_code,
       suburb: this.user.city,
       state: this.user.state,
       country: this.user.country
