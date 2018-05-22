@@ -20,6 +20,7 @@ export class PickupAddressPage {
   recentAddresses: any;
   isNewAddressClicked: boolean = false;
   isSaveAddressChecked: boolean = false;
+  isFromInternational: boolean = false;
   consObj: any;
 
   constructor(
@@ -32,7 +33,8 @@ export class PickupAddressPage {
     private storage: Storage
   ) {
     if (!_.isEmpty(this.navParams.data)) {
-      this.consObj = this.navParams.data;
+      this.consObj = this.navParams.data.consObj;
+      this.isFromInternational = this.navParams.data.isFromInternational
     }
   }
 
@@ -50,12 +52,17 @@ export class PickupAddressPage {
       country: ['', Validators.required],
       pickupIns: ['',]
     });
-    this.getUserDataOnInit();
+
+    if(!this.isFromInternational){
+      this.getUserDataOnInit();
+    }
   }
 
   savePickUpAddress() {
     if (!this.isSaveAddressChecked) {
-      this.consObj.user_id = this.user.id;
+      if(!_.isEmpty(this.user)){
+        this.consObj.user_id = this.user.id;
+      }
 
       this.consObj.pickup_f_name = this.pickUpAddressForm.value.fName;
       this.consObj.pickup_l_name = this.pickUpAddressForm.value.lName;
@@ -67,7 +74,7 @@ export class PickupAddressPage {
       this.consObj.pickup_state = this.pickUpAddressForm.value.state;
       this.consObj.pickup_postcode = this.pickUpAddressForm.value.pin;
 
-      this.navCtrl.push(DeliveryAddressPage, this.consObj);
+      this.navCtrl.push(DeliveryAddressPage,  { consObj: this.consObj, isFromInternational: this.isFromInternational });
     }
   }
 

@@ -1,3 +1,4 @@
+import { BookingOverviewPage } from './../booking-overview/booking-overview';
 import { ConsignmentDashboardPage } from './../consignment-dashboard/consignment-dashboard';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -48,12 +49,11 @@ export class GenerateQuotePage {
       this.astronPreloader.show();
       this.astranService.addBooking(this.consObj).subscribe(data => {
         this.astronPreloader.hide();
-        console.log(data);
-        // this.astronToast.makeToast("Update successful!");
-        //this.navCtrl.push(ConsignmentDashboardPage);
+        this.astronToast.makeToast("Successful!");
+        this.navCtrl.push(BookingOverviewPage);
       }, error => {
         console.log(error);
-        this.astronToast.makeToast("Something went wrong!!!");
+        this.astronToast.makeToast(error);
       });
     } else {
       this.astronToast.makeToast("Please check all the fields");

@@ -15,7 +15,7 @@ import * as _ from 'underscore';
 export class CreateItemPage {
   packages: any;
   itemForm: FormGroup;
-
+  isFromInternational: boolean = false;
   measurements = [
     { name: 'cm' },
     { name: 'inch' },
@@ -28,7 +28,12 @@ export class CreateItemPage {
     public navParams: NavParams,
     private astranService: AstranService,
     private astronPreloader: AstronPreloader,
-    private astronToast: AstronToast) {
+    private astronToast: AstronToast,
+  ) {
+    if (!_.isEmpty(this.navParams.data)) {
+      console.log(this.navParams.data);
+      this.isFromInternational = this.navParams.data.isFromInternational;
+    }
   }
 
   ngOnInit() {
@@ -129,7 +134,13 @@ export class CreateItemPage {
     conObj.total_volume = total_volume;
     conObj.total_weight = total_weight;
 
-    this.navCtrl.push(PickupAddressPage, conObj);
+
+    if (this.isFromInternational) {
+      this.navCtrl.push(PickupAddressPage, { consObj: conObj, isFromInternational: this.isFromInternational });
+    } else {
+      this.navCtrl.push(PickupAddressPage, { consObj: conObj, isFromInternational: this.isFromInternational });
+    }
+
   }
 
   selectItem(event, measure) {
@@ -137,7 +148,7 @@ export class CreateItemPage {
       widMeasure: measure.name,
       heiMeasure: measure.name
     });
-
   }
+
 
 }
