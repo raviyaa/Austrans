@@ -42,10 +42,22 @@ function getListOfBookingsById(id, callback) {
     });
 }
 
+function addBooking(obj, callback) {
+    connection.query('INSERT INTO api_bookings SET ?', obj, function (err, results) {
+        if (err) {
+            callback(null, JSON.stringify(err));
+        } else {
+            callback(null, JSON.stringify(results));
+        }
+    });
+}
+
+
 module.exports = {
     getListPackageTypes: getListPackageTypes,
-    getListOfBookings:getListOfBookings,
-    getListOfBookingsById:getListOfBookingsById
+    getListOfBookings: getListOfBookings,
+    getListOfBookingsById: getListOfBookingsById,
+    addBooking: addBooking
 };
 
 

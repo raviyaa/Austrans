@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-generate-quote',
@@ -7,9 +8,24 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class GenerateQuotePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  generateQuoteForm: FormGroup
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private fb: FormBuilder,
+  ) {
   }
 
+  ngOnInit() {
+    this.generateQuoteForm = this.fb.group({
+      reference: ['', Validators.required],
+      instructions: ['', Validators.required]
+    });
+  }
 
+  saveBooking() {
+
+  }
 
 }

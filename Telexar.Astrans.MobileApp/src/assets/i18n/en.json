@@ -61,27 +61,27 @@
       "TITLE": "Pickup Address",
       "CARD_TITLE": "Enter pickup details",
       "REFERENCE": "Reference",
-      "RECENT":"Recently used locations",
-      "CHECK_BOX":"Save this address for later user",
+      "RECENT": "Recently used locations",
+      "CHECK_BOX": "Save this address for later user",
       "COMPANY_NAME": "Company Name",
       "FIRST_NAME": "First Name",
       "LAST_NAME": "Last Name",
       "ADDRESS": "Address",
       "EMAIL": "Email",
       "PHONE": "Phone",
-      "SUBURB":"Suburb",
+      "SUBURB": "Suburb",
       "SELECT_COUNTRY": "Select Country",
       "LOCATION": "Location",
       "STATE": "State",
       "CITY": "City",
       "PIN_CODE": "PIN Code",
-      "COUNTRY":"Country",
-      "PICKUP_INSC":"Pickup Instruction",
+      "COUNTRY": "Country",
+      "PICKUP_INSC": "Pickup Instruction",
       "SELEC_TYPE": "Select Type",
-      "BTN_NEXT":"Next",
-      "BTN_CHANGE":"Enter a new location "
+      "BTN_NEXT": "Next",
+      "BTN_CHANGE": "Enter a new location "
     },
-    "DELIVERY":{
+    "DELIVERY": {
       "TITLE": "Delivery Address",
       "CARD_TITLE": "Enter delivery details",
       "REFERENCE": "Reference",
@@ -91,19 +91,19 @@
       "ADDRESS": "Address",
       "EMAIL": "Email",
       "PHONE": "Phone",
-      "SUBURB":"Suburb",
+      "SUBURB": "Suburb",
       "SELECT_COUNTRY": "Select Country",
       "LOCATION": "Location",
       "STATE": "State",
       "CITY": "City",
       "PIN_CODE": "PIN Code",
-      "COUNTRY":"Country",
-      "PICKUP_INSC":"Pickup Instruction",
+      "COUNTRY": "Country",
+      "PICKUP_INSC": "Pickup Instruction",
       "SELEC_TYPE": "Select Type",
-      "BTN_NEXT":"Next",
-      "RECENT":"Recently used locations",
-      "CHECK_BOX":"Save this address for later user",
-      "BTN_CHANGE":"Enter a new location "
+      "BTN_NEXT": "Next",
+      "RECENT": "Recently used locations",
+      "CHECK_BOX": "Save this address for later user",
+      "BTN_CHANGE": "Enter a new location "
     }
   },
   "BOOKING_OVERVIEW": {
@@ -226,6 +226,11 @@
         "PIN_CODE": "PIN Code"
       }
     }
+  },
+  "GEN_QUOTES": {
+    "TITLE": "Generate Quotes",
+    "SENDER_REFERENCE": "Sender Reference",
+    "SPECIAL_INS": "Special Instruction"
   },
   "BACK_BUTTON_TEXT": "Back",
   "NAME": "Name",

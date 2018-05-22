@@ -49,11 +49,25 @@ function getListOfBookingsById(req, res) {
     });
 }
 
-
+function addBooking(req, res) {
+    async.waterfall([
+        function (callback) {
+            itemService.addBooking(req.body, function (err, result) {
+                if (err) {
+                    callback(null, err);
+                }
+                callback(null, result);
+            });
+        }
+    ], function (err, result) {
+        utils.processResponse(err, result, res);
+    });
+}
 
 
 module.exports = {
     getListPackageTypes: getListPackageTypes,
-    getListOfBookings:getListOfBookings,
-    getListOfBookingsById:getListOfBookingsById
+    getListOfBookings: getListOfBookings,
+    getListOfBookingsById: getListOfBookingsById,
+    addBooking: addBooking
 };

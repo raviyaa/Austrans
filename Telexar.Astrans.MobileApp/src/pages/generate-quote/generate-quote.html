@@ -1,12 +1,39 @@
 <ion-header>
-    <ion-toolbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>{{ 'DASHBOARD.TITLE' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'GEN_QUOTES.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="generateQuoteForm" (submit)="saveBooking()">
+    <ion-list>
+
+      <ion-card>
+        <ion-card-header>
+          {{ 'GEN_QUOTES.SENDER_REFERENCE' | translate }}
+        </ion-card-header>
+
+        <ion-item>
+          <ion-label floating> {{ 'GEN_QUOTES.SENDER_REFERENCE' | translate }}</ion-label>
+          <ion-textarea formControlName="reference"></ion-textarea>
+        </ion-item>
+      </ion-card>
+
+      <ion-card>
+          <ion-card-header>
+            {{ 'GEN_QUOTES.SPECIAL_INS' | translate }}
+          </ion-card-header>
   
-  <ion-content padding>
-  </ion-content>
-  
+          <ion-item>
+            <ion-label floating> {{ 'GEN_QUOTES.v' | translate }}</ion-label>
+            <ion-textarea formControlName="instructions"></ion-textarea>
+          </ion-item>
+        </ion-card>
+
+
+    </ion-list>
+  </form>
+</ion-content>
