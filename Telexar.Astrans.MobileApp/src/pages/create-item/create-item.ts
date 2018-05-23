@@ -31,7 +31,6 @@ export class CreateItemPage {
     private astronToast: AstronToast,
   ) {
     if (!_.isEmpty(this.navParams.data)) {
-      console.log(this.navParams.data);
       this.isFromInternational = this.navParams.data.isFromInternational;
     }
   }
@@ -98,27 +97,46 @@ export class CreateItemPage {
       total_weight: 0
     };
 
-    var package_type = [];
-    var length = [];
-    var width = [];
-    var height = [];
-    var lwh_measurement = [];
-    var weight = [];
-    var weight_measurement = [];
-    var volume = [];
+    var package_type = {};
+    var length = {};
+    var width = {};
+    var height = {};
+    var lwh_measurement = {};
+    var weight = {};
+    var weight_measurement = {};
+    var volume = {};
 
     var total_volume = 0;
     var total_weight = 0;
 
     _.each(this.itemForm.value.items, function (item, key) {
-      package_type.push(item.type);
-      length.push(item.length);
-      width.push(item.width);
-      height.push(item.height);
-      lwh_measurement.push(item.lenMeasure);
-      weight.push(item.weight);
-      weight_measurement.push(item.weiMeasure);
-      volume.push(item.volume);
+      if (_.isEmpty(package_type) || _.isEmpty(length) || _.isEmpty(width) || _.isEmpty(height) || _.isEmpty(lwh_measurement) || _.isEmpty(weight) || _.isEmpty(weight_measurement) || _.isEmpty(volume)) {
+        package_type = item.type;
+        length = item.length;
+        width = item.width;
+        height = item.height;
+        lwh_measurement = item.lenMeasure;
+        weight = item.weight;
+        weight_measurement = item.weiMeasure;
+        volume = item.volume;
+      } else {
+        package_type = package_type + "," + item.type;
+        length = length + "," + item.length;
+        width = width + "," + item.width;
+        height = height + "," + item.height;
+        lwh_measurement = lwh_measurement + "," + item.lenMeasure;
+        weight = weight + "," + item.weight;
+        weight_measurement = weight_measurement + "," + item.weiMeasure;
+        volume = volume + "," + item.volume;
+      }
+      /*      package_type.push(item.type);
+           length.push(item.length);
+           width.push(item.width);
+           height.push(item.height);
+           lwh_measurement.push(item.lenMeasure);
+           weight.push(item.weight);
+           weight_measurement.push(item.weiMeasure);
+           volume.push(item.volume); */
       total_volume += item.volume * item.qty;
       total_weight += item.weight * item.qty;
     });
@@ -133,8 +151,7 @@ export class CreateItemPage {
     conObj.volume = volume;
     conObj.total_volume = total_volume;
     conObj.total_weight = total_weight;
-
-
+    
     if (this.isFromInternational) {
       this.navCtrl.push(PickupAddressPage, { consObj: conObj, isFromInternational: this.isFromInternational });
     } else {
