@@ -5,6 +5,7 @@ var userController = require('./controllers/userController');
 var addressController = require('./controllers/addressController');
 var itemController = require('./controllers/itemController');
 var financeController = require('./controllers/financeController');
+var commonController = require('./controllers/commonController');
 
 module.exports = function () {
 
@@ -34,6 +35,8 @@ module.exports = function () {
 
     router.get('/getListOfInvoices', financeController.getListOfInvoice);
     router.post('/getListInvoicesById/:id', financeController.getListInvoicesById);
+
+    router.get('/getListOfCountries', commonController.getListOfCountries);
 
     return router;
 };
