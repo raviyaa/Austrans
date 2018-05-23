@@ -98,6 +98,16 @@ export class AstranService {
             .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
     }
 
+    getListInvoicesByIdAndStatus(id) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getListInvoicesByIdAndStatus/' + id, HttpConfig.requestOptions())
+            .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
+    }
+
+    addPayment(data) {
+        return this._http.post(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'addPayment', data, HttpConfig.requestOptions())
+            .map((response: Response) => response.json()).catch(this._errorhandler);
+    }
+
     _errorhandler(error: Response) {
         console.error(error);
         return Observable.throw(error || 'Server Error')

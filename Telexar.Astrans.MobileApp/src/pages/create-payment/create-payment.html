@@ -49,12 +49,12 @@
 
         <ion-item>
           <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.AMOUNT' | translate }}</ion-label>
-          <ion-input type="number" formControlName="amount"></ion-input>
+          <ion-input type="number" formControlName="amount" [readonly]="true"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label floating> {{ 'PAYMENT_DASHBOARD.CREATE_PAYMENT.OUT_AMOUNT' | translate }}</ion-label>
-          <ion-input type="number" formControlName="outAmount"></ion-input>
+          <ion-input type="number" formControlName="outAmount" [readonly]="true"></ion-input>
         </ion-item>
 
         <ion-item [hidden]="isFromPaypal">

@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import * as _ from 'underscore';
 import { AstronToast } from '../../providers/astraon-toast/astron-toast';
 import { AstronPreloader } from '../../providers/astron-preloader/astron-preloader';
+import { InvoicePage } from '../invoice/invoice';
 
 @Component({
   selector: 'page-create-payment',
@@ -18,6 +19,8 @@ export class CreatePaymentPage {
   user: any;
   invoices: any;
   isFromPaypal: boolean;
+  paymentType: any;
+  selectedInvoice: any;
 
   constructor(
     public navCtrl: NavController,
@@ -34,20 +37,39 @@ export class CreatePaymentPage {
   }
 
   ngOnInit() {
-    this.createPaymentForm = this.fb.group({
-      companyName: ['', Validators.required],
-      accountNo: ['', Validators.required],
-      address: ['', Validators.required],
-      contactName: ['', Validators.required],
-      phone: ['', Validators.required],
-      amount: ['', Validators.required],
-      outAmount: ['', Validators.required],
-      invoiceNo: ['', Validators.required],
-      cardNo: ['', Validators.required],
-      expMonth: ['', Validators.required],
-      expYear: ['', Validators.required],
-      cvc: ['', Validators.required]
-    });
+    if (this.isFromPaypal) {
+      this.createPaymentForm = this.fb.group({
+        companyName: ['', Validators.required],
+        accountNo: ['', Validators.required],
+        address: ['', Validators.required],
+        contactName: ['', Validators.required],
+        phone: ['', Validators.required],
+        amount: ['', Validators.required],
+        outAmount: ['', Validators.required],
+        invoiceNo: ['', Validators.required],
+        cardNo: ['',],
+        expMonth: ['',],
+        expYear: ['',],
+        cvc: ['',]
+      });
+      this.paymentType = 'paypal'
+    } else {
+      this.createPaymentForm = this.fb.group({
+        companyName: ['', Validators.required],
+        accountNo: ['', Validators.required],
+        address: ['', Validators.required],
+        contactName: ['', Validators.required],
+        phone: ['', Validators.required],
+        amount: ['', Validators.required],
+        outAmount: ['', Validators.required],
+        invoiceNo: ['', Validators.required],
+        cardNo: ['', Validators.required],
+        expMonth: ['', Validators.required],
+        expYear: ['', Validators.required],
+        cvc: ['', Validators.required]
+      });
+      this.paymentType = 'stripe'
+    }
     this.getUserData();
   }
 
@@ -66,7 +88,7 @@ export class CreatePaymentPage {
 
   getListOfInvoices() {
     this.astronPreloader.hide();
-    this.astranService.getListInvoicesById(this.user.id).subscribe(data => {
+    this.astranService.getListInvoicesByIdAndStatus(this.user.id).subscribe(data => {
       if (!_.isEmpty(data)) {
         this.invoices = data;
         this.onDataReceived();
@@ -90,6 +112,7 @@ export class CreatePaymentPage {
 
   selectItem($event, invoice) {
     if (!_.isEmpty(invoice)) {
+      this.selectedInvoice = invoice;
       this.onSelectedInvoiceReceived(invoice);
     } else {
       this.astronToast.makeToast("Something went wrong");
@@ -104,6 +127,29 @@ export class CreatePaymentPage {
   }
 
   savePayment() {
+    var paymentObj = {
+      user_id: this.user.id,
+      company_name: this.createPaymentForm.value.companyName,
+      account_number: this.createPaymentForm.value.accountNo,
+      invoice_id: this.selectedInvoice.id,
+      billing_address: this.createPaymentForm.value.address,
+      contact_name: this.createPaymentForm.value.contactName,
+      phone: this.createPaymentForm.value.phone,
+      type: this.paymentType,
+      amount: this.createPaymentForm.value.outAmount
+    };
 
+    console.log(paymentObj);
+    this.astronPreloader.show();
+    this.astranService.addPayment(paymentObj).subscribe(data => {
+      this.astronPreloader.hide();
+      if (!_.isEmpty(data)) {
+        this.navCtrl.push(InvoicePage);
+      } else {
+        this.astronToast.makeToast("Something went wrong");
+      }
+    }, error => {
+      this.astronToast.makeToast(error);
+    });
   }
 }

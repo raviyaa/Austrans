@@ -14,8 +14,8 @@ module.exports = function () {
     };
 
     // Instantiate an isolated express Router instance
-    var router = express.Router(options);  
-    
+    var router = express.Router(options);
+
     router.get('/getUsers', userController.getListOfUsers);
     router.post('/userLogin', userController.userLogin);
     router.post('/updateUser', userController.updateUser);
@@ -35,6 +35,8 @@ module.exports = function () {
 
     router.get('/getListOfInvoices', financeController.getListOfInvoice);
     router.post('/getListInvoicesById/:id', financeController.getListInvoicesById);
+    router.post('/getListInvoicesByIdAndStatus/:id', financeController.getListInvoicesByIdAndStatus);
+    router.post('/addPayment', financeController.addPayment);
 
     router.get('/getListOfCountries', commonController.getListOfCountries);
 
