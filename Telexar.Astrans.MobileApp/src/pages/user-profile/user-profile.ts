@@ -16,6 +16,7 @@ import { DashboardPage } from '../dashboard/dashboard';
 export class UserProfilePage {
   userPofileForm: FormGroup;
   user: any;
+  countries: any;
 
   constructor(
     public navCtrl: NavController,
@@ -30,6 +31,7 @@ export class UserProfilePage {
 
   ngOnInit() {
     this.getInitData();
+    this.getListOfCountries();
     this.userPofileForm = this.fb.group({
       companyName: ['', Validators.required],
       fName: ['', Validators.required],
@@ -70,6 +72,7 @@ export class UserProfilePage {
       location: this.user.city,
       pin: this.user.postal_code,
       compName: this.user.company_name,
+      country: this.user.country,
       compAddress: this.user.address1 + " " + user.city,
       compPin: this.user.postal_code
     });
@@ -104,7 +107,17 @@ export class UserProfilePage {
         this.astronToast.makeToast("Something went wrong!!!");
       });
     } else {
-
+      this.astronToast.makeToast("Please update the info");
     }
+  }
+
+  getListOfCountries() {
+    //this.astronPreloader.show();
+    this.astranService.getListOfCountries().subscribe(data => {
+      //this.astronPreloader.hide();
+      this.countries = data;
+    }, error => {
+      this.astronToast.makeToast(error);
+    });
   }
 }

@@ -1,3 +1,4 @@
+import { AstronPreloader } from './../../providers/astron-preloader/astron-preloader';
 import { ViewAddressPage } from './../view-address/view-address';
 import { Address } from './../../models/address';
 import { Component } from '@angular/core';
@@ -16,6 +17,7 @@ export class AddAddressPage {
 
   addAddressForm: FormGroup;
   address: Address;
+  countries: any;
 
   constructor(
     public navCtrl: NavController,
@@ -23,7 +25,8 @@ export class AddAddressPage {
     private astronToast: AstronToast,
     private fb: FormBuilder,
     private astranService: AstranService,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    private astronPreloader: AstronPreloader) {
 
   }
   ngOnInit() {
@@ -37,10 +40,9 @@ export class AddAddressPage {
       phone: ['', Validators.required],
       location: ['', Validators.required],
       country: ['', Validators.required],
-      /*   state: ['',], */
       pin: ['', Validators.required]
     });
-
+    this.getListOfCountries();
     if (!_.isEmpty(this.navParams.data)) {
       this.onAddressRetrived(this.navParams.data);
     }
@@ -56,8 +58,7 @@ export class AddAddressPage {
             this.astronToast.makeToast("Update successful!");
             this.navCtrl.push(ViewAddressPage);
           }, error => {
-            console.log(error);
-            this.astronToast.makeToast("Something went wrong!!!");
+            this.astronToast.makeToast(error);
           });
         } else {
           this.astronToast.makeToast("Something went wrong!!!");
@@ -85,8 +86,20 @@ export class AddAddressPage {
       lName: address.last_name,
       address: address.address,
       email: address.email,
-      phone: address.phone
+      phone: address.phone,
+      country: address.country_id,
+      pin: address.pincode,
+      location: address.city
     });
   }
 
+  getListOfCountries() {
+    this.astronPreloader.show();
+    this.astranService.getListOfCountries().subscribe(data => {
+      this.astronPreloader.hide();
+      this.countries = data;
+    }, error => {
+      this.astronToast.makeToast(error);
+    });
+  }
 }

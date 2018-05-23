@@ -67,11 +67,11 @@
           <ion-input type="text" formControlName="location" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.LOCATION' | translate }}"></ion-input>
         </ion-item>
 
+
         <ion-item class="sign-form">
-          <ion-label icon-left>
-            <i class="far fa-flag"></i>
-          </ion-label>
-          <ion-input type="text" formControlName="country" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.SELECT_COUNTRY' | translate }}"></ion-input>
+          <ion-select interface="popover" formControlName="country" style="text-align: left" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.SELECT_COUNTRY' | translate }}">
+            <ion-option *ngFor="let country of countries" [value]="country.id">{{country.name}}</ion-option>
+          </ion-select>
         </ion-item>
 
         <ion-item class="sign-form">

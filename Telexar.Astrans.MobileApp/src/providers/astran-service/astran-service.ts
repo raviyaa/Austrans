@@ -93,6 +93,11 @@ export class AstranService {
             .map((response: Response) => response.json()).catch(this._errorhandler);
     }
 
+    getListOfCountries() {
+        return this._http.get(APP_SERVICE_CONFIG.USER_SERVICE_URL + 'getListOfCountries', HttpConfig.requestOptions())
+            .map((response: Response) => JSON.parse(response.json())).catch(this._errorhandler);
+    }
+
     _errorhandler(error: Response) {
         console.error(error);
         return Observable.throw(error || 'Server Error')
