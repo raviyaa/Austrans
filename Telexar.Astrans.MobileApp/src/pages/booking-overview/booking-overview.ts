@@ -52,4 +52,9 @@ export class BookingOverviewPage {
       }
     });
   }
+
+  getItems(ev: any) {
+
+  }
+
 }
