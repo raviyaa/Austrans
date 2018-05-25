@@ -94,7 +94,8 @@ export class CreateItemPage {
       weight_measurement: null,
       volume: null,
       total_volume: 0,
-      total_weight: 0
+      total_weight: 0,
+      quantity: 0
     };
 
     var package_type = {};
@@ -108,6 +109,7 @@ export class CreateItemPage {
 
     var total_volume = 0;
     var total_weight = 0;
+    var quantity = 0;
 
     _.each(this.itemForm.value.items, function (item, key) {
       if (_.isEmpty(package_type) || _.isEmpty(length) || _.isEmpty(width) || _.isEmpty(height) || _.isEmpty(lwh_measurement) || _.isEmpty(weight) || _.isEmpty(weight_measurement) || _.isEmpty(volume)) {
@@ -139,6 +141,7 @@ export class CreateItemPage {
            volume.push(item.volume); */
       total_volume += item.volume * item.qty;
       total_weight += item.weight * item.qty;
+      quantity += item.qty;
     });
 
     conObj.package_type = package_type;
@@ -151,7 +154,8 @@ export class CreateItemPage {
     conObj.volume = volume;
     conObj.total_volume = total_volume;
     conObj.total_weight = total_weight;
-    
+    conObj.quantity = quantity;
+
     if (this.isFromInternational) {
       this.navCtrl.push(PickupAddressPage, { consObj: conObj, isFromInternational: this.isFromInternational });
     } else {

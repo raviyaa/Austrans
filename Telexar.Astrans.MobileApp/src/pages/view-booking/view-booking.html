@@ -143,11 +143,11 @@
         {{ 'VIEW_BOOKING.ITEM_INFO.TITLE' | translate }}
       </ion-card-header>
 
-      <ion-item>
+      <ion-item *ngFor="let item of booking.itemDetail">
         <ion-label icon-left>
           <i class="fas fa-bookmark"></i>
-          <b>{{booking?.package_type}}</b> : {{booking?.length}} X {{booking?.width}} X {{booking?.height}} {{booking?.lwh_measurement}}
-          @ {{booking?.weight}} {{booking?.weight_measurement}} X {{booking?.quantity}}
+          <b>{{item?.package_type}}</b> : {{item?.length}} X {{item?.width}} X {{item?.height}} {{item?.lwh_measurement}} @
+          {{item?.weight}} {{item?.weight_measurement}} X {{item?.quantity}}
         </ion-label>
       </ion-item>
 

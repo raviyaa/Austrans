@@ -68,8 +68,7 @@ export class AddAddressPage {
           this.astronToast.makeToast("New Address successfully added!");
           this.navCtrl.push(ViewAddressPage);
         }, error => {
-          console.log(error);
-          this.astronToast.makeToast("Something went wrong!!!");
+          this.astronToast.makeToast(error);
         }
         );
       }
