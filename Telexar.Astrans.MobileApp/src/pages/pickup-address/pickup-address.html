@@ -82,8 +82,12 @@
         </ion-item>
 
         <ion-item>
-          <ion-label floating> {{ 'CONSIGNMENT.PICKUP.COUNTRY' | translate }}</ion-label>
-          <ion-input type="text" formControlName="country"></ion-input>
+          <ion-label icon-left>
+            <i class="far fa-flag"></i>
+          </ion-label>
+          <ion-select interface="popover" formControlName="country" style="text-align: left" placeholder=" {{ 'CONSIGNMENT.PICKUP.COUNTRY' | translate }}">
+            <ion-option *ngFor="let country of countries" [value]="country.id">{{country.name}}</ion-option>
+          </ion-select>
         </ion-item>
 
         <ion-item>

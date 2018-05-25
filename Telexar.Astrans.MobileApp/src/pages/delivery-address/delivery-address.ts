@@ -21,6 +21,7 @@ export class DeliveryAddressPage {
   isFromInternational: boolean = false;
   user: any;
   recentAddresses: any;
+  countries: any;
 
   constructor(
     public navCtrl: NavController,
@@ -48,13 +49,13 @@ export class DeliveryAddressPage {
       state: ['', Validators.required],
       pin: ['', Validators.required],
       country: ['', Validators.required],
-      pickupIns: ['', Validators.required]
+      pickupIns: ['',]
     });
 
     if (this.isFromInternational) {
-      console.log('inside');
       this.getUserDataOnInit();
     }
+    this.getListOfCountries();
   }
 
   saveDeliveryAddress() {
@@ -82,10 +83,8 @@ export class DeliveryAddressPage {
 
   checkBoxClicked(event) {
     if (event.checked) {
-      console.log('chcked');
       this.isSaveAddressChecked = true;
     } else {
-      console.log('not');
       this.isSaveAddressChecked = false;
     }
   }
@@ -111,7 +110,7 @@ export class DeliveryAddressPage {
       address: this.user.address1,
       email: this.user.email,
       phone: this.user.phone,
-      pinS: this.user.postal_code,
+      pin: this.user.postal_code,
       suburb: this.user.city,
       state: this.user.state,
       country: this.user.country
@@ -124,6 +123,14 @@ export class DeliveryAddressPage {
       } else {
         this.astronToast.makeToast("Something went wrong");
       }
+    }, error => {
+      this.astronToast.makeToast(error);
+    });
+  }
+
+  getListOfCountries() {
+    this.astranService.getListOfCountries().subscribe(data => {
+      this.countries = data;
     }, error => {
       this.astronToast.makeToast(error);
     });

@@ -22,6 +22,7 @@ export class PickupAddressPage {
   isSaveAddressChecked: boolean = false;
   isFromInternational: boolean = false;
   consObj: any;
+  countries: any;
 
   constructor(
     public navCtrl: NavController,
@@ -53,14 +54,15 @@ export class PickupAddressPage {
       pickupIns: ['',]
     });
 
-    if(!this.isFromInternational){
+    if (!this.isFromInternational) {
       this.getUserDataOnInit();
     }
+    this.getListOfCountries();
   }
 
   savePickUpAddress() {
     if (!this.isSaveAddressChecked) {
-      if(!_.isEmpty(this.user)){
+      if (!_.isEmpty(this.user)) {
         this.consObj.user_id = this.user.id;
       }
 
@@ -74,7 +76,7 @@ export class PickupAddressPage {
       this.consObj.pickup_state = this.pickUpAddressForm.value.state;
       this.consObj.pickup_postcode = this.pickUpAddressForm.value.pin;
 
-      this.navCtrl.push(DeliveryAddressPage,  { consObj: this.consObj, isFromInternational: this.isFromInternational });
+      this.navCtrl.push(DeliveryAddressPage, { consObj: this.consObj, isFromInternational: this.isFromInternational });
     }
   }
 
@@ -105,7 +107,7 @@ export class PickupAddressPage {
       address: this.user.address1,
       email: this.user.email,
       phone: this.user.phone,
-      pinS: this.user.postal_code,
+      pin: this.user.postal_code,
       suburb: this.user.city,
       state: this.user.state,
       country: this.user.country
@@ -133,12 +135,18 @@ export class PickupAddressPage {
   }
   checkBoxClicked(event) {
     if (event.checked) {
-      console.log('chcked');
       this.isSaveAddressChecked = true;
     } else {
-      console.log('not');
       this.isSaveAddressChecked = false;
     }
+  }
+
+  getListOfCountries() {
+    this.astranService.getListOfCountries().subscribe(data => {
+      this.countries = data;
+    }, error => {
+      this.astronToast.makeToast(error);
+    });
   }
 }
 

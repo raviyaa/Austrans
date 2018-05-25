@@ -42,9 +42,12 @@ export class GenerateQuotePage {
   }
 
   saveBooking() {
-    if (this.isSaveAddressChecked) {
-      this.consObj.delivery_instructions = this.generateQuoteForm.value.instructions,
-        this.consObj.pickup_timezone_date = this.generateQuoteForm.value.date + "" + this.generateQuoteForm.value.time
+    if (this.isSaveAddressChecked && this.generateQuoteForm.valid) {
+      this.consObj.sender_reference = this.generateQuoteForm.value.reference,
+        this.consObj.delivery_instructions = this.generateQuoteForm.value.instructions,
+        this.consObj.pickup_timezone_date = new Date().getTimezoneOffset(),
+        this.consObj.pickup_earlieste = this.generateQuoteForm.value.date,
+        this.consObj.ready_time = this.generateQuoteForm.value.time
 
       this.astronPreloader.show();
       this.astranService.addBooking(this.consObj).subscribe(data => {
@@ -52,7 +55,6 @@ export class GenerateQuotePage {
         this.astronToast.makeToast("Successful!");
         this.navCtrl.push(BookingOverviewPage);
       }, error => {
-        console.log(error);
         this.astronToast.makeToast(error);
       });
     } else {
@@ -62,10 +64,8 @@ export class GenerateQuotePage {
 
   checkBoxClicked(event) {
     if (event.checked) {
-      console.log('chcked');
       this.isSaveAddressChecked = true;
     } else {
-      console.log('not');
       this.isSaveAddressChecked = false;
     }
   }
