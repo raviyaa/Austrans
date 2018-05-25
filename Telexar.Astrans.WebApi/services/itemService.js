@@ -43,6 +43,8 @@ function getListOfBookingsById(id, callback) {
 }
 
 function addBooking(obj, callback) {
+    obj.created_at = new Date();
+    obj.updated_at = new Date();
     connection.query('INSERT INTO api_bookings SET ?', obj, function (err, results) {
         if (err) {
             callback(null, JSON.stringify(err));

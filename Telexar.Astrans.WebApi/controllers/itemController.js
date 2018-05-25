@@ -53,9 +53,9 @@ function addBooking(req, res) {
     async.waterfall([
         function (callback) {
             var bookObj = req.body;
-            bookObj.api_booking_number = "CPWI" + Math.random() * 1000000000;
+            bookObj.api_booking_number = "APB" + Math.floor(Math.random() * 1000000000);
             bookObj.consignment_number = bookObj.api_booking_number;
-            itemService.addBooking(req.body, function (err, result) {
+            itemService.addBooking(bookObj, function (err, result) {
                 if (err) {
                     callback(null, err);
                 }

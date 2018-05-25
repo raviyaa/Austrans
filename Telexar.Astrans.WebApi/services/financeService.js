@@ -33,6 +33,8 @@ function getListInvoicesByIdAndStatus(id, callback) {
 
 
 function addPayment(obj, callback) {
+    obj.created_at = new Date();
+    obj.updated_at = new Date();
     connection.query('INSERT INTO finance_transactions SET ?', obj, function (err, results) {
         if (err) {
             console.log(JSON.stringify(err));
@@ -45,6 +47,7 @@ function addPayment(obj, callback) {
 }
 
 function updateInvoice(invoice, callback) {
+    invoice.updated_at = new Date();
     connection.query('UPDATE invoices SET ? WHERE id = ?', [invoice, invoice.id], function (error, results) {
         if (error) {
             console.log(JSON.stringify(err));

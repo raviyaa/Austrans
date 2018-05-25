@@ -23,6 +23,7 @@ function userLogin(user, callback) {
 
 function updateUser(user, callback) {
     console.log(user);
+    user.updated_at = new Date();
     connection.query('UPDATE users SET ? WHERE id = ?', [user, user.id], function (error, results) {
         if (error) {
             console.log(error);

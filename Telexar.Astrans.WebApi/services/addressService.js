@@ -13,6 +13,8 @@ function getListOfAddress(callback) {
 }
 
 function addAddress(obj, callback) {
+    obj.created_at = new Date();
+    obj.updated_at = new Date();
     connection.query('INSERT INTO address_books SET ?', obj, function (err, results) {
         if (err) {
             callback(null, JSON.stringify(err));
@@ -34,6 +36,7 @@ function deleteAddress(obj, callback) {
 
 function editAddress(obj, callback) {
     console.log(obj);
+    obj.updated_at = new Date();
     connection.query('UPDATE address_books SET ? WHERE id = ?', [obj, obj.id], function (err, results) {
         if (err) {
             callback(null, JSON.stringify(err));
@@ -70,8 +73,8 @@ module.exports = {
     addAddress: addAddress,
     deleteAddress: deleteAddress,
     editAddress: editAddress,
-    getListOfAddressesById:getListOfAddressesById,
-    getListOfRecentAddressesById:getListOfRecentAddressesById
+    getListOfAddressesById: getListOfAddressesById,
+    getListOfRecentAddressesById: getListOfRecentAddressesById
 };
 
 
