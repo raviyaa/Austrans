@@ -59,6 +59,9 @@ export class ViewBookingPage {
         lwh_measurement: ""
       };
 
+      if (_.isEmpty(this.splitString(data.package_type)[i])) {
+        continue;
+      }
       item.type = this.splitString(data.package_type)[i];
       item.height = this.splitString(data.height)[i];
       item.width = this.splitString(data.width)[i];
