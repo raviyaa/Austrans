@@ -1,5 +1,6 @@
+import { FinanceDashboardPage } from './../finance-dashboard/finance-dashboard';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AstranService } from '../../providers/astran-service/astran-service';
 import { TranslateService } from '@ngx-translate/core';
@@ -29,7 +30,8 @@ export class CreatePaymentPage {
     private astranService: AstranService,
     private fb: FormBuilder,
     private astronPreloader: AstronPreloader,
-    private astronToast: AstronToast
+    private astronToast: AstronToast,
+    private alertCtrl: AlertController
   ) {
     if (!_.isEmpty(this.navParams.data)) {
       this.isFromPaypal = this.navParams.data.isFromPaypal
@@ -81,7 +83,7 @@ export class CreatePaymentPage {
         this.getListOfInvoices();
       } else {
         this.astronPreloader.hide();
-        this.astronToast.makeToast("Something went wrong");
+        this.astronToast.makeToast("Something went wrong! User not found");
       }
     });
   }
@@ -90,10 +92,11 @@ export class CreatePaymentPage {
     this.astronPreloader.hide();
     this.astranService.getListInvoicesByIdAndStatus(this.user.id).subscribe(data => {
       if (!_.isEmpty(data)) {
+        console.log(data);
         this.invoices = data;
         this.onDataReceived();
       } else {
-        this.astronToast.makeToast("Something went wrong");
+        this.presentAlert();
       }
     }, error => {
       this.astronToast.makeToast(error);
@@ -152,4 +155,15 @@ export class CreatePaymentPage {
       this.astronToast.makeToast(error);
     });
   }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Warning',
+      subTitle: 'There are no invoices',
+      buttons: ['Dismiss']
+    });
+    alert.present();
+    this.navCtrl.push(FinanceDashboardPage);
+  }
+
 }
