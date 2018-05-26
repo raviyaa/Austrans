@@ -16,7 +16,7 @@ import { Storage } from '@ionic/storage';
 })
 export class MyApp {
   rootPage = LoginPage;
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, icon: any }>;
   @ViewChild(Nav) nav: Nav;
   constructor(
     private translate: TranslateService,
@@ -35,12 +35,12 @@ export class MyApp {
     this.initTranslate();
 
     this.pages = [
-      { title: 'Home', component: DashboardPage },
-      { title: 'Addrress Book', component: ViewAddressPage },
-      { title: 'Consignment', component: ConsignmentDashboardPage },
-      { title: 'Finance', component: FinanceDashboardPage },
-      { title: 'My Profile', component: UserProfilePage },
-      { title: 'Logout', component: '' }
+      { title: 'Home', component: DashboardPage, icon: 'home' },
+      { title: 'Addrress Book', component: ViewAddressPage, icon: 'book' },
+      { title: 'Consignment', component: ConsignmentDashboardPage, icon: 'cube' },
+      { title: 'Finance', component: FinanceDashboardPage, icon: 'cash' },
+      { title: 'My Profile', component: UserProfilePage, icon: 'person' },
+      { title: 'Logout', component: '', icon: 'log-out' }
     ];
   }
 
@@ -69,7 +69,7 @@ export class MyApp {
         this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
       }); */
   }
-  
+
   openPage(page) {
     if (page.component) {
       this.nav.setRoot(page.component);
