@@ -47,8 +47,8 @@ function addBooking(obj, callback) {
     obj.updated_at = new Date();
     connection.query('INSERT INTO api_bookings SET ?', obj, function (err, results) {
         if (err) {
-            callback(null, JSON.stringify(err));
             console.log(JSON.stringify(err));
+            callback(null, JSON.stringify(err));
         } else {
             console.log(JSON.stringify(results));
             callback(null, JSON.stringify(results));
