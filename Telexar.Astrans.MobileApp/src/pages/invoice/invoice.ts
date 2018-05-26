@@ -1,3 +1,5 @@
+import { AstronToast } from './../../providers/astraon-toast/astron-toast';
+import { AstronPreloader } from './../../providers/astron-preloader/astron-preloader';
 import { AstranService } from './../../providers/astran-service/astran-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -14,7 +16,9 @@ export class InvoicePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private astranService: AstranService
+    private astranService: AstranService,
+    private astronPreloader: AstronPreloader,
+    private astronToast: AstronToast
   ) {
   }
 
@@ -23,11 +27,12 @@ export class InvoicePage {
   }
 
   getInitData() {
+    this.astronPreloader.show();
     this.astranService.getListOfInvoices().subscribe(data => {
+      this.astronPreloader.hide();
       this.invoices = data;
-      console.log(data);
     }, error => {
-      console.log(error)
+      this.astronToast.makeToast(error);
     });
   }
 
