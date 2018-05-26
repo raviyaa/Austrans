@@ -1,43 +1,46 @@
 page-dashboard {
- .db-wrapper{
-    padding:0; 
-    background-color: rgba(238, 101, 33,1);
-    border-radius: 5px;
-    margin-top:10vh;
- }
- .db-wrapper_icon{
-    padding:0; 
-    background-color: rgba(238, 101, 33,1);
-    border-radius: 5px;
- }
-
- .tbl{
-     width:100%;
-     height:50vh;
-     display: table;
- }
- .tbl-cell{
-     display:table-cell;
-     vertical-align: middle;
-     margin: auto;
- }
- .text-middle{
-     text-align: center;
- }
- .name{
-     font-size: 4em;
-     margin-bottom: 0;
- }
- .bottom_text{
-    margin-top: 0; 
-    letter-spacing: 7px;
-    margin-bottom: 50px;
- }
- .icon-center{
-    text-align: center
- }
- .scroll-content {
-    padding: 16px;
-    margin-top: 20vh !important;
-}
+    .db-wrapper {
+        padding: 0;
+        background-color: rgba(238, 101, 33, 1);
+        border-radius: 5px;
+        margin-top: 10vh;
+    }
+    .db-wrapper_icon {
+        padding: 0;
+        background-color: rgba(238, 101, 33, 1);
+        border-radius: 5px;
+    }
+    .tbl {
+        width: 100%;
+        height: 50vh;
+        display: table;
+    }
+    .tbl-cell {
+        display: table-cell;
+        vertical-align: middle;
+        margin: auto;
+    }
+    .text-middle {
+        text-align: center;
+    }
+    .name {
+        font-size: 4em;
+        margin-bottom: 0;
+    }
+    .bottom_text {
+        margin-top: 0;
+        letter-spacing: 7px;
+        margin-bottom: 50px;
+    }
+    .icon-center {
+        text-align: center
+    }
+    .scroll-content {
+        padding: 16px;
+        margin-top: 20vh !important;
+    }
+    .ion-icon {
+        display: inline-block;
+        font-size: 25px !important;
+    }
 }

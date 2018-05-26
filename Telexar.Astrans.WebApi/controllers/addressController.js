@@ -29,7 +29,13 @@ function addAddress(req, res) {
                 last_name: req.body.lName,
                 address: req.body.address,
                 email: req.body.email,
-                phone: req.body.phone
+                phone: req.body.phone,
+                country_id: req.body.country,
+                city: req.body.city,
+                state: req.body.state,
+                pincode: req.body.pin,
+                type: req.body.type,
+                suburb_id: req.body.suburb
             };
             addressService.addAddress(addressObj, function (err, result) {
                 if (err) {
@@ -69,7 +75,13 @@ function editAddress(req, res) {
                 last_name: req.body.lName,
                 address: req.body.address,
                 email: req.body.email,
-                phone: req.body.phone
+                phone: req.body.phone,
+                country_id: req.body.country,
+                city: req.body.city,
+                state: req.body.state,
+                pincode: req.body.pin,
+                type: req.body.type,
+                suburb_id: req.body.suburb
             };
             addressService.editAddress(addressObj, function (err, result) {
                 if (err) {

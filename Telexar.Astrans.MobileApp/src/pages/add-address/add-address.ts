@@ -8,6 +8,7 @@ import { AstranService } from '../../providers/astran-service/astran-service';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'underscore';
 import { AstronToast } from '../../providers/astraon-toast/astron-toast';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-add-address',
@@ -18,6 +19,7 @@ export class AddAddressPage {
   addAddressForm: FormGroup;
   address: Address;
   countries: any;
+  user: any;
 
   constructor(
     public navCtrl: NavController,
@@ -25,6 +27,7 @@ export class AddAddressPage {
     private astronToast: AstronToast,
     private fb: FormBuilder,
     private astranService: AstranService,
+    private storage: Storage,
     public translateService: TranslateService,
     private astronPreloader: AstronPreloader) {
 
@@ -38,19 +41,24 @@ export class AddAddressPage {
       address: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
-      location: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      type: ['', Validators.required],
+      suburb: ['',],
       country: ['', Validators.required],
       pin: ['', Validators.required]
     });
     this.getListOfCountries();
+    this.getUserData();
     if (!_.isEmpty(this.navParams.data)) {
       this.onAddressRetrived(this.navParams.data);
     }
   }
 
   saveAddress() {
-    if (this.addAddressForm.dirty && this.addAddressForm.valid) {
+    if (this.addAddressForm.dirty && this.addAddressForm.valid && !_.isEmpty(this.user)) {
       const p = Object.assign({}, this.address, this.addAddressForm.value);
+      p.user_id = this.user.id;
       if (!_.isEmpty(this.navParams.data)) {
         if (!_.isEmpty(this.navParams.data)) {
           p.id = this.navParams.data.id;
@@ -88,7 +96,10 @@ export class AddAddressPage {
       phone: address.phone,
       country: address.country_id,
       pin: address.pincode,
-      location: address.city
+      city: address.city,
+      state: address.state,
+      type: address.type,
+      suburb: address.suburb_id
     });
   }
 
@@ -99,6 +110,15 @@ export class AddAddressPage {
       this.countries = data;
     }, error => {
       this.astronToast.makeToast(error);
+    });
+  }
+  getUserData() {
+    this.storage.get('user').then((user) => {
+      if (!_.isEmpty(user)) {
+        this.user = JSON.parse(user)[0];
+      } else {
+        this.astronToast.makeToast("Something went wrong");
+      }
     });
   }
 }

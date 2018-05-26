@@ -5,7 +5,8 @@ export interface Address {
     companyName: string;
     fName: string;
     lName: string;
-    location: string;
+    state: string;
+    city: string;
     email: string;
     phone: string;
     pin: string;

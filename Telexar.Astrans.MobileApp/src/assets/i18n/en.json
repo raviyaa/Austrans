@@ -16,6 +16,7 @@
       "LOCATION": "Location",
       "STATE": "State",
       "CITY": "City",
+      "SUBURB": "Suburb",
       "PIN_CODE": "PIN Code",
       "SELEC_TYPE": "Select Type",
       "BTN_SAVE": "Save"

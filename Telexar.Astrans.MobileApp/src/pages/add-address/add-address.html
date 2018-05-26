@@ -62,11 +62,24 @@
 
         <ion-item class="sign-form">
           <ion-label icon-left>
-            <ion-icon name="locate"></ion-icon>
+            <ion-icon name="compass"></ion-icon>
           </ion-label>
-          <ion-input type="text" formControlName="location" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.LOCATION' | translate }}"></ion-input>
+          <ion-input type="text" formControlName="state" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.STATE' | translate }}"></ion-input>
         </ion-item>
 
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="locate"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="city" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.CITY' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-label icon-left>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="suburb" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.SUBURB' | translate }}"></ion-input>
+        </ion-item>
 
         <ion-item class="sign-form">
           <ion-select interface="popover" formControlName="country" style="text-align: left" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.SELECT_COUNTRY' | translate }}">
@@ -79,6 +92,13 @@
             <ion-icon name="mail"></ion-icon>
           </ion-label>
           <ion-input type="text" formControlName="pin" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.PIN_CODE' | translate }}"></ion-input>
+        </ion-item>
+
+        <ion-item class="sign-form">
+          <ion-select interface="popover" formControlName="type" style="text-align: left" placeholder=" {{ 'ADDRESS_BOOK.ADD_ADDRESS_BOOK.SELEC_TYPE' | translate }}">
+            <ion-option>Business</ion-option>
+            <ion-option>Residential</ion-option>
+          </ion-select>
         </ion-item>
 
         <div padding class="login-btn">

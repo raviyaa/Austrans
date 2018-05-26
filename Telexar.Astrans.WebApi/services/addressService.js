@@ -4,7 +4,6 @@ var connection = require('../connection');
 function getListOfAddress(callback) {
     connection.query('SELECT * from address_books WHERE user_id=13', function (err, results) {
         if (err) {
-            console.log('qwerrty');
             callback(null, JSON.stringify(err));
         } else {
             callback(null, JSON.stringify(results));
@@ -15,20 +14,24 @@ function getListOfAddress(callback) {
 function addAddress(obj, callback) {
     obj.created_at = new Date();
     obj.updated_at = new Date();
-    connection.query('INSERT INTO address_books SET ?', obj, function (err, results) {
-        if (err) {
-            callback(null, JSON.stringify(err));
+    connection.query('INSERT INTO address_books SET ?', obj, function (error, results) {
+        if (error) {
+            console.log(JSON.stringify(error));
+            callback(null, JSON.stringify(error));
         } else {
+            console.log(JSON.stringify(results));
             callback(null, JSON.stringify(results));
         }
     });
 }
 
 function deleteAddress(obj, callback) {
-    connection.query('DELETE FROM address_books WHERE id=?', [obj.id], function (err, results) {
-        if (err) {
-            callback(null, JSON.stringify(err));
+    connection.query('DELETE FROM address_books WHERE id=?', [obj.id], function (error, results) {
+        if (error) {
+            console.log(JSON.stringify(error));
+            callback(null, JSON.stringify(error));
         } else {
+            console.log(JSON.stringify(results));
             callback(null, JSON.stringify(results));
         }
     });
@@ -37,11 +40,12 @@ function deleteAddress(obj, callback) {
 function editAddress(obj, callback) {
     console.log(obj);
     obj.updated_at = new Date();
-    connection.query('UPDATE address_books SET ? WHERE id = ?', [obj, obj.id], function (err, results) {
-        if (err) {
-            callback(null, JSON.stringify(err));
+    connection.query('UPDATE address_books SET ? WHERE id = ?', [obj, obj.id], function (error, results) {
+        if (error) {
+            console.log(JSON.stringify(error));
+            callback(null, JSON.stringify(error));
         } else {
-            console.log(results);
+            console.log(JSON.stringify(results));
             callback(null, JSON.stringify(results));
         }
     });

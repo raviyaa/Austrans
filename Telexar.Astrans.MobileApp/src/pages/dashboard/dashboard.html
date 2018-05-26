@@ -18,10 +18,29 @@
       <p class="text-middle">ABN : 85 085 765 863.</p>
 
       <ion-item class="icon-center db-wrapper_icon">
-        <ion-label icon-left>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4></ion-col>
+            <ion-col col-4>
+              <ion-col col-3>
+                <ion-icon name="logo-facebook" (click)="fbBtnClicked()"></ion-icon>
+              </ion-col>
+              <ion-col col-3>
+                <ion-icon name="logo-googleplus" (click)="gPlusBtnClicked()"></ion-icon>
+              </ion-col>
+              <ion-col col-3>
+                <ion-icon name="logo-twitter" (click)="twitterBtnClicked()"></ion-icon>
+              </ion-col>
+              <ion-col col-3>
+                <ion-icon name="logo-instagram" (click)="instaBtnClicked()"></ion-icon>
+              </ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!--       <ion-label icon-left>
           <ion-icon name="locate" (click)="gh()"></ion-icon>
           <ion-icon name="person" (click)="ghi()"></ion-icon>
-        </ion-label>
+        </ion-label> -->
       </ion-item>
     </ion-list>
   </div>

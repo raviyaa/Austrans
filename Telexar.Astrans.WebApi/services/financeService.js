@@ -50,7 +50,7 @@ function updateInvoice(invoice, callback) {
     invoice.updated_at = new Date();
     connection.query('UPDATE invoices SET ? WHERE id = ?', [invoice, invoice.id], function (error, results) {
         if (error) {
-            console.log(JSON.stringify(err));
+            console.log(JSON.stringify(error));
             callback(null, JSON.stringify(error));
         } else {
             console.log(JSON.stringify(results));

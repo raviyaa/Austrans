@@ -14,11 +14,16 @@ export class DashboardPage {
   ) {
   }
 
-  gh() {
-    console.log('gh');
+  fbBtnClicked() {
+    window.open('https://www.facebook.com/AustransTL/', '_system');
   }
-
-  ghi() {
-    console.log('ghq');
+  gPlusBtnClicked() {
+    console.log('g');
+  }
+  twitterBtnClicked() {
+    console.log('tw');
+  }
+  instaBtnClicked() {
+    window.open('https://www.instagram.com/austranstl/', '_system');
   }
 }

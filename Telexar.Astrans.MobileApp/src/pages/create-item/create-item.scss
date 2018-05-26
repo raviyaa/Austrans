@@ -1,6 +1,4 @@
 page-create-item {
-
-
     .toolbar-title-md {
         text-align: center;
     }
@@ -48,15 +46,15 @@ page-create-item {
         margin: 9px 15px 9px 4px;
     }
     .item-md {
-        padding-left: 0px; 
+        padding-left: 0px;
         padding-right: 0px;
     }
     ion-row.log-option {
         width: 350px;
         margin: 0 auto;
     }
-    .add-item-wrapper{
-        width:100vw;
+    .add-item-wrapper {
+        width: 100vw;
     }
     .add-item {
         background-color: rgb(33, 34, 94);
@@ -66,7 +64,7 @@ page-create-item {
         outline: none;
         border-style: none;
     }
-    .remove-item{
+    .remove-item {
         margin-right: 4px;
         padding: 11px;
         float: right;
@@ -75,14 +73,12 @@ page-create-item {
     }
     .text-input::-moz-placeholder {
         color: black !important;
-      }
-      
-      .text-input:-ms-input-placeholder {
+    }
+    .text-input:-ms-input-placeholder {
         color: black !important;
-      }
-      
-      .text-input::-webkit-input-placeholder {
+    }
+    .text-input::-webkit-input-placeholder {
         text-indent: 0;
         color: black !important;
-      }
+    }
 }
