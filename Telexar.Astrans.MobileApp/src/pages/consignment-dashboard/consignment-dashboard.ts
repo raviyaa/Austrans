@@ -33,7 +33,7 @@ export class ConsignmentDashboardPage {
   presentConfirm() {
     let alert = this.alertCtrl.create({
       title: 'International',
-      message: 'Please select pick the location?',
+      message: 'Please select the type of service?',
       buttons: [
         {
           text: 'Import',
