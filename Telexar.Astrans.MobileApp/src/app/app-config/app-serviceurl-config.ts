@@ -7,7 +7,7 @@ export const APP_SERVICE_CONFIG: ISericeUrl = {
 
     // Local Dev
 
-    USER_SERVICE_URL: 'http://localhost:3000/'
+    USER_SERVICE_URL: 'http://microservices.io:3000/'
 
 
 
