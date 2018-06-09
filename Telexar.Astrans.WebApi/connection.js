@@ -1,17 +1,46 @@
 'use strict';
 var mysql = require('mysql');
-var connection = mysql.createConnection({
+
+var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'austran_austrans_logistics'
 });
-connection.connect(function (err) {
-    if (!err) {
-        console.log("Database is connected ... nn");
-    } else {
-        console.log("Error connecting database ... nn");
-    }
-});
 
-module.exports = connection;
+
+var DB = (function () {
+
+    function _query(query, params, callback) {
+        pool.getConnection(function (err, connection) {
+            if (err) {
+                connection.release();
+                callback(null, err);
+                throw err;
+            }
+
+            connection.query(query, params, function (err, rows) {
+                connection.release();
+                if (!err) {
+                    callback(rows);
+                }
+                else {
+                    callback(null, err);
+                }
+
+            });
+
+            connection.on('error', function (err) {
+                connection.release();
+                callback(null, err);
+                throw err;
+            });
+        });
+    };
+
+    return {
+        query: _query
+    };
+})();
+
+module.exports = DB;
